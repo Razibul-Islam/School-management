@@ -1,18 +1,11 @@
 import React from "react";
-import principalImage from "../../assets/principal.jpeg";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
-const Principal = () => {
+const Welcome = () => {
   return (
-    <div className="my-10 flex flex-wrap lg:flex-nowrap justify-between items-start gap-10 px-5 lg:px-0">
-      <div className="w-full lg:w-auto">
-        <img
-          src={principalImage}
-          alt="Principal"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <div className="my-20 flex flex-wrap lg:flex-nowrap justify-between items-start gap-10 px-5 lg:px-0">
       <div className="lg:w-2/3">
-        <h1 className="text-xl mb-5">প্রধান অধ্যক্ষের বাণী</h1>
+        <h1 className="text-xl mb-5">আমাদের স্কুল এ স্বাগতম</h1>
         <p className="text-justify">
           জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে
           সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে
@@ -35,11 +28,23 @@ const Principal = () => {
           ইক্ষ্বাকু আঁজি অংসকুট টঙ্কক
         </p>
         <div className="flex justify-end">
-          <button className="mainBtn mt-2">আরো পড়ুন</button>
+          <button className="mainBtn mt-2 w-full">
+            আরো পড়ুন <ArrowRightAltIcon />
+          </button>
         </div>
+      </div>
+      <div className="w-full lg:w-auto mt-5">
+        <iframe
+          className="lg:w-[403px] h-80 w-full"
+          src="https://www.youtube.com/embed/feVAKA4yen4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   );
 };
 
-export default Principal;
+export default Welcome;

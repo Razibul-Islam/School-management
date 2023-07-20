@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="flex flex-wrap lg:flex-nowrap justify-between items-start px-2">
+    <div className="flex flex-wrap lg:flex-nowrap justify-between items-start px-2 mt-10">
       <div className="lg:w-2/3 w-full">
         <Swiper
           slidesPerView={1}
