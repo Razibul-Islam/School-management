@@ -8,7 +8,7 @@ import Recent from "../Components/Home/Recent";
 
 const Home = () => {
   return (
-    <div class="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <Banner />
       <Principal />
       <Welcome />

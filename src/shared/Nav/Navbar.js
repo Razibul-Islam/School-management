@@ -35,6 +35,16 @@ const Navbar = () => {
                 বিজ্ঞপ্তি
               </Link>
             </li>
+            <li>
+              <Link to="/gallery" class="font-medium tracking-wide   text-xl">
+                গ্যালারী
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" class="font-medium tracking-wide   text-xl">
+                যোগাযোগ
+              </Link>
+            </li>
           </ul>
           <div class="lg:hidden">
             <button

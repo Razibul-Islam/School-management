@@ -1,5 +1,6 @@
 import React from "react";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
@@ -28,9 +29,9 @@ const Welcome = () => {
           ইক্ষ্বাকু আঁজি অংসকুট টঙ্কক
         </p>
         <div className="flex justify-end">
-          <button className="mainBtn mt-2 w-full">
+          <Link to="/welcome" className="mainBtn mt-2 w-full text-center">
             আরো পড়ুন <ArrowRightAltIcon />
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-full lg:w-auto mt-5">

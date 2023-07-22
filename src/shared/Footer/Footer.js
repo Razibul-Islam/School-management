@@ -16,57 +16,36 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
           <div className="space-y-3">
-            <h3 className="tracking-wide uppercase text-gray-50">
-              ADMISSION LINKS
-            </h3>
             <ul className="space-y-1">
-              <li>
-                <Link to="/">Download Form</Link>
-              </li>
-              <li>
-                <Link to="/">Result</Link>
-              </li>
-              <li>
-                <Link to="/">Research Work</Link>
-              </li>
-              <li>
-                <Link to="/">Accounts Automation Form</Link>
-              </li>
+              <li>প্রিন্সিপাল</li>
+              <li>মোবাইল : +৮৮০ ১২৫৪৯৬২৮৫</li>
+              <li>ভাইস প্রিন্সিপাল</li>
+              <li>মোবাইল : +৮৮০ ১২৫৪৯৬২৮৫</li>
             </ul>
           </div>
           <div className="space-y-3">
-            <h3 className="tracking-wide uppercase text-gray-50">Others</h3>
             <ul className="space-y-1">
-              <li>
-                <Link to="/">Accounts Automation Form</Link>
-              </li>
-              <li>
-                <Link to="/">Research Work</Link>
-              </li>
-              <li>
-                <Link to="/">Result</Link>
-              </li>
-              <li>
-                <Link to="/">Download Form</Link>
-              </li>
+              <li>ঠিকানা</li>
+              <li>মিরপুর - ৮</li>
+              <li>ঢাকা,বাংলাদেশ</li>
             </ul>
           </div>
           <div className="space-y-3">
-            <h3 className="tracking-wide uppercase text-gray-50">
-              Useful Links
-            </h3>
             <ul className="space-y-1">
               <li>
-                <Link to="/">Download Form</Link>
+                <a href="https://dhakaeducationboard.portal.gov.bd/">
+                  বাংলাদেশ শিক্ষা বোর্ড
+                </a>
               </li>
               <li>
-                <Link to="/">Accounts Automation Form</Link>
+                <a href="https://dhakaeducationboard.portal.gov.bd/">
+                  মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ড, ঢাকা
+                </a>
               </li>
               <li>
-                <Link to="/">Research Work</Link>
-              </li>
-              <li>
-                <Link to="/">Result</Link>
+                <a href="http://www.bteb.gov.bd/">
+                  বাংলাদেশ কারিগরি শিক্ষা বোর্ড
+                </a>
               </li>
             </ul>
           </div>

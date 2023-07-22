@@ -8,7 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Recent = () => {
   return (
@@ -36,17 +37,12 @@ const Recent = () => {
               spaceBetween: 30,
             },
           }}
-          // slidesPerView={3}
-          // spaceBetween={30}
           loop={true}
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,
           }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, Pagination]}
+          modules={[Autoplay]}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -58,15 +54,21 @@ const Recent = () => {
                 </span>
               </div>
               <div className="p-3">
-                <p className="text-lg">
+                <p className="text-lg font-semibold mb-3">
+                  সেকালের হরকরা নামক ইংরেজি পত্রিকায় দেখিতাম
+                </p>
+                <p className="text-base">
                   আয়রে ভোলা খেয়াল-খোলা , স্বপনদোলা নাচিয়ে আয় , আয়রে পাগল
                   আবোল তাবোল
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+                  <Link
+                    to="/recent"
+                    className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+                  >
                     <AddIcon />
                     আরো পড়ুন
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -80,15 +82,21 @@ const Recent = () => {
                 </span>
               </div>
               <div className="p-3">
-                <p className="text-lg">
+                <p className="text-lg font-semibold mb-3">
+                  সেকালের হরকরা নামক ইংরেজি পত্রিকায় দেখিতাম
+                </p>
+                <p className="text-base">
                   আয়রে ভোলা খেয়াল-খোলা , স্বপনদোলা নাচিয়ে আয় , আয়রে পাগল
                   আবোল তাবোল
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+                  <Link
+                    to="/recent"
+                    className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+                  >
                     <AddIcon />
                     আরো পড়ুন
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -102,15 +110,21 @@ const Recent = () => {
                 </span>
               </div>
               <div className="p-3">
-                <p className="text-lg">
+                <p className="text-lg font-semibold mb-3">
+                  সেকালের হরকরা নামক ইংরেজি পত্রিকায় দেখিতাম
+                </p>
+                <p className="text-base">
                   আয়রে ভোলা খেয়াল-খোলা , স্বপনদোলা নাচিয়ে আয় , আয়রে পাগল
                   আবোল তাবোল
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+                  <Link
+                    to="/recent"
+                    className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+                  >
                     <AddIcon />
                     আরো পড়ুন
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -124,15 +138,21 @@ const Recent = () => {
                 </span>
               </div>
               <div className="p-3">
-                <p className="text-lg">
+                <p className="text-lg font-semibold mb-3">
+                  সেকালের হরকরা নামক ইংরেজি পত্রিকায় দেখিতাম
+                </p>
+                <p className="text-base">
                   আয়রে ভোলা খেয়াল-খোলা , স্বপনদোলা নাচিয়ে আয় , আয়রে পাগল
                   আবোল তাবোল
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+                  <Link
+                    to="/recent"
+                    className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+                  >
                     <AddIcon />
                     আরো পড়ুন
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -146,15 +166,21 @@ const Recent = () => {
                 </span>
               </div>
               <div className="p-3">
-                <p className="text-lg">
+                <p className="text-lg font-semibold mb-3">
+                  সেকালের হরকরা নামক ইংরেজি পত্রিকায় দেখিতাম
+                </p>
+                <p className="text-base">
                   আয়রে ভোলা খেয়াল-খোলা , স্বপনদোলা নাচিয়ে আয় , আয়রে পাগল
                   আবোল তাবোল
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+                  <Link
+                    to="/recent"
+                    className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+                  >
                     <AddIcon />
                     আরো পড়ুন
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -168,15 +194,21 @@ const Recent = () => {
                 </span>
               </div>
               <div className="p-3">
-                <p className="text-lg">
+                <p className="text-lg font-semibold mb-3">
+                  সেকালের হরকরা নামক ইংরেজি পত্রিকায় দেখিতাম
+                </p>
+                <p className="text-base">
                   আয়রে ভোলা খেয়াল-খোলা , স্বপনদোলা নাচিয়ে আয় , আয়রে পাগল
                   আবোল তাবোল
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+                  <Link
+                    to="/recent"
+                    className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+                  >
                     <AddIcon />
                     আরো পড়ুন
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -76,7 +76,7 @@ const Banner = () => {
           </p>
           <p className="flex justify-between items-center w-full mt-1">
             <span>01/02/2023</span>
-            <Link className="text-[#002147] font-bold text-right">
+            <Link to="/more" className="text-[#002147] font-bold text-right">
               আরো পড়ুন
             </Link>
           </p>
@@ -88,7 +88,7 @@ const Banner = () => {
           </p>
           <p className="flex justify-between items-center w-full mt-1">
             <span>01/02/2023</span>
-            <Link className="text-[#002147] font-bold text-right">
+            <Link to="/more" className="text-[#002147] font-bold text-right">
               আরো পড়ুন
             </Link>
           </p>
@@ -100,7 +100,7 @@ const Banner = () => {
           </p>
           <p className="flex justify-between items-center w-full mt-1">
             <span>01/02/2023</span>
-            <Link className="text-[#002147] font-bold text-right">
+            <Link to="/more" className="text-[#002147] font-bold text-right">
               আরো পড়ুন
             </Link>
           </p>
@@ -112,15 +112,18 @@ const Banner = () => {
           </p>
           <p className="flex justify-between items-center w-full mt-1">
             <span>01/02/2023</span>
-            <Link className="text-[#002147] font-bold text-right">
+            <Link to="/more" className="text-[#002147] font-bold text-right">
               আরো পড়ুন
             </Link>
           </p>
         </div>
         <div className="flex justify-end items-center">
-          <p className="text-xl mr-2 font-bold cursor-pointer inline-block mainBtn">
+          <Link
+            to="/notice"
+            className="text-xl mr-2 font-bold cursor-pointer inline-block mainBtn"
+          >
             See All
-          </p>
+          </Link>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import newsImage from "../../assets/news1.jpeg";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AddIcon from "@mui/icons-material/Add";
+import { Link } from "react-router-dom";
 
 const Leatest = () => {
   return (
@@ -21,10 +22,13 @@ const Leatest = () => {
               তাবোল
             </p>
             <div className="flex justify-end">
-              <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+              <Link
+                to="/latest"
+                className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+              >
                 <AddIcon />
                 আরো পড়ুন
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -41,10 +45,13 @@ const Leatest = () => {
               তাবোল
             </p>
             <div className="flex justify-end">
-              <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+              <Link
+                to="/latest"
+                className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+              >
                 <AddIcon />
                 আরো পড়ুন
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -61,10 +68,13 @@ const Leatest = () => {
               তাবোল
             </p>
             <div className="flex justify-end">
-              <button className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5">
+              <Link
+                to="/latest"
+                className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
+              >
                 <AddIcon />
                 আরো পড়ুন
-              </button>
+              </Link>
             </div>
           </div>
         </div>
