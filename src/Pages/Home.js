@@ -4,6 +4,7 @@ import Principal from "../Components/Home/Principal";
 import Welcome from "../Components/Home/Welcome";
 import Latest from "../Components/Home/Leatest";
 import BasicInformation from "../Components/Home/BasicInformation";
+import Recent from "../Components/Home/Recent";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Welcome />
       <Latest />
       <BasicInformation />
+      <Recent />
     </div>
   );
 };
