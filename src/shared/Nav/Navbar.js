@@ -16,22 +16,22 @@ const Navbar = () => {
           </Link>
           <ul class="flex items-center hidden space-x-8 lg:flex">
             <li>
-              <Link to="/about" class="font-medium tracking-wide   text-xl">
+              <Link to="/about" class="font-medium tracking-wide">
                 আমাদের সম্পর্কে
               </Link>
             </li>
             <li>
-              <Link to="/teachers" class="font-medium tracking-wide   text-xl">
+              <Link to="/teachers" class="font-medium tracking-wide">
                 শিক্ষক
               </Link>
             </li>
             <li>
-              <Link to="/student" class="font-medium tracking-wide   text-xl">
+              <Link to="/student" class="font-medium tracking-wide">
                 ছাত্র-ছাত্রী
               </Link>
             </li>
             <li>
-              <Link to="/notice" class="font-medium tracking-wide   text-xl">
+              <Link to="/notice" class="font-medium tracking-wide">
                 বিজ্ঞপ্তি
               </Link>
             </li>
