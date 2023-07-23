@@ -11,3 +11,24 @@ body {
     @apply bg-gradient-to-tr from-green-500 to-teal-400 px-5 py-2 rounded-sm text-white;
   }
 }
+
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #0D9488;
+  color: white;
+}
