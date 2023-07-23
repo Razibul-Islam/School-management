@@ -5,6 +5,7 @@ import Students from "./Pages/Students";
 import Notice from "./Pages/Notice";
 import Main from "./Pages/Main";
 import Home from "./Pages/Home";
+
 import Login from "./Dashboard/Login";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +21,15 @@ import Addnotice from "./Dashboard/AddNotice";
 import AddNews from "./Dashboard/AddNews";
 import AddInformation from "./Dashboard/AddInformation";
 
+import Gallery from "./Pages/Gallery";
+import Contact from "./Pages/Contact";
+import More from "./Components/Notice/More";
+import Principal from "./Pages/Principal";
+import Welcome from "./Pages/Welcome";
+import Latest from "./Pages/Latest";
+import Recent from "./Pages/Recent";
+
+
 function App() {
   return (
     <div>
@@ -30,6 +40,7 @@ function App() {
           <Route path="/teachers" element={<Teachers />}></Route>
           <Route path="/student" element={<Students />}></Route>
           <Route path="/notice" element={<Notice />}></Route>
+
 
 
           {/* dashboard  */}
@@ -46,6 +57,15 @@ function App() {
             <Route path="/admin/student/class-nine" element={<Nine/>}></Route>
             <Route path="/admin/student/class-ten" element={<Ten/>}></Route>
           </Route>
+
+          <Route path="/gallery" element={<Gallery />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/more" element={<More />}></Route>
+          <Route path="/principal" element={<Principal />}></Route>
+          <Route path="/welcome" element={<Welcome />}></Route>
+          <Route path="/latest" element={<Latest />}></Route>
+          <Route path="/recent" element={<Recent />}></Route>
+
         </Route>
       </Routes>
       <ToastContainer />
