@@ -6,7 +6,7 @@ const Teachers = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   useEffect(() => {
-    const url = "https://school-server-liard.vercel.app/get-teacher";
+    const url = "http://localhost:5000/get-teacher";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTeacherData(data));

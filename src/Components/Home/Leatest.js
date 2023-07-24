@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Leatest = () => {
   const [newses, setNewses] = useState([]);
   useEffect(() => {
-    const url = "https://school-server-liard.vercel.app/get-news";
+    const url = "http://localhost:5000/get-news";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNewses(data));
@@ -17,7 +17,7 @@ const Leatest = () => {
     <div className="my-20">
       <h1 className="text-center text-xl ">সর্বশেষ খবর</h1>
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 gap-10">
-        {newses.map((news, i) => (
+        {newses.slice(0, 3).map((news, i) => (
           <div key={i} className="shadow-lg">
             <div>
               <img
@@ -26,7 +26,8 @@ const Leatest = () => {
                 className="w-full mb-3"
               />
               <span className="text-black/70 my-3 block">
-                <CalendarMonthIcon className="text-teal-600" /> 10 jul, 2023
+                <CalendarMonthIcon className="text-teal-600" />{" "}
+                {new Date(news.time).toLocaleString()}
               </span>
             </div>
             <div className="p-3">
@@ -38,7 +39,7 @@ const Leatest = () => {
               </p>
               <div className="flex justify-end">
                 <Link
-                  to="/latest"
+                  to={`/latest/${news._id}`}
                   className="px-5 py-1 rounded-3xl border border-teal-500 flex items-center gap-5"
                 >
                   <AddIcon />

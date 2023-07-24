@@ -17,7 +17,7 @@ const Addnotice = () => {
         const time = Date.now();
         const data = { title, prahgraph, time }
 
-        const url = `https://school-server-liard.vercel.app/add-notice`;
+        const url = `http://localhost:5000/add-notice`;
 
         fetch(url, {
             method: "Post",
@@ -40,7 +40,7 @@ const Addnotice = () => {
 
 
     const handleDeleteNotice  = (_id)=>{
-        const url = `https://school-server-liard.vercel.app/delete-notice?_id=${_id}`;
+        const url = `http://localhost:5000/delete-notice?_id=${_id}`;
         fetch(url, {
             method : "DELETE"
         })
@@ -50,7 +50,7 @@ const Addnotice = () => {
 
 
     useEffect(()=>{
-        const url = 'https://school-server-liard.vercel.app/get-notice'
+        const url = 'http://localhost:5000/get-notice'
         fetch(url)
         .then(res=> res.json())
         .then(data=> setNotice(data))

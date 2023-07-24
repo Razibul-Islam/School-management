@@ -31,7 +31,7 @@ const AddTeacher = () => {
                 const teacherImg = data.url;
                 if (data) {
                     const data = { name, post, phone, teacherImg };
-                    const url = `https://school-server-liard.vercel.app/add-teacher`;
+                    const url = `http://localhost:5000/add-teacher`;
                     fetch(url, {
                         method: "POST",
                         headers: {
@@ -53,7 +53,7 @@ const AddTeacher = () => {
     }
 
     const handledeleteTeacher = (_id)=>{
-        const url = `https://school-server-liard.vercel.app/delete-teacher?_id=${_id}`;
+        const url = `http://localhost:5000/delete-teacher?_id=${_id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -66,7 +66,7 @@ const AddTeacher = () => {
     }
 
     useEffect(()=>{
-        fetch('https://school-server-liard.vercel.app/get-teacher')
+        fetch('http://localhost:5000/get-teacher')
         .then(res => res.json())
         .then(data => setTeacher(data))
     },[handleAddTeacher, handledeleteTeacher] )

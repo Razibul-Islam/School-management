@@ -14,15 +14,15 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [notice, setNotice] = useState([]);
-  const [getId, setGetId] = useState(null);
+  // const [getId, setGetId] = useState(null);
 
   useEffect(() => {
-    const url = "https://school-server-liard.vercel.app/get-notice";
+    const url = "http://localhost:5000/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));
   }, []);
-  console.log(getId);
+  // console.log(getId);
   return (
     <div className="flex flex-wrap lg:flex-nowrap justify-between items-start px-2 mt-10">
       <div className="lg:w-2/3 w-full">
@@ -82,7 +82,7 @@ const Banner = () => {
         {notice.slice(0, 3).map((singleNotice, i) => (
           <div
             key={i}
-            className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center"
+            className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end"
           >
             <p className="font-semibold mb-3">{singleNotice.title}</p>
             <p>
@@ -99,14 +99,14 @@ const Banner = () => {
               >
                 আরো পড়ুন
               </Link> */}
-              <div onClick={() => setGetId(singleNotice._id)}>
-                <Link
-                  to="/more"
-                  className="text-[#002147] font-bold text-right"
-                >
-                  আরো পড়ুন
-                </Link>
-              </div>
+              {/* <div onClick={() => setGetId(singleNotice._id)}> */}
+              <Link
+                to={`/more/${singleNotice._id}`}
+                className="text-[#002147] font-bold text-right"
+              >
+                আরো পড়ুন
+              </Link>
+              {/* </div> */}
             </p>
           </div>
         ))}
