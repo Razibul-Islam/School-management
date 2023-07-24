@@ -30,7 +30,7 @@ const AddNews = () => {
                 const imgUrl = data.url;
                 const info = { title, descripetion, imgUrl, time };
                 if (data.url) {
-                    const url = `http://localhost:5000/add-news`;
+                    const url = `https://school-server-liard.vercel.app/add-news`;
 
                     fetch(url, {
                         method: "POST",
@@ -55,7 +55,7 @@ const AddNews = () => {
 
 
     useEffect(() => {
-        const url = 'http://localhost:5000/get-news';
+        const url = 'https://school-server-liard.vercel.app/get-news';
         fetch(url)
             .then(res => res.json())
             .then(data => setnews(data))
