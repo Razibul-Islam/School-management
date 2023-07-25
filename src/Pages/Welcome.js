@@ -8,9 +8,9 @@ const Welcome = () => {
           className="lg:w-[600px] h-80 w-full"
           src="https://www.youtube.com/embed/feVAKA4yen4"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
       <h1 className="text-center text-xl mt-5">আমাদের স্কুল এ স্বাগতম</h1>

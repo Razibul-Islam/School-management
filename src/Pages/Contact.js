@@ -17,7 +17,7 @@ const Contact = () => {
                   height="400"
                   className="w-full"
                   title="Map"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
