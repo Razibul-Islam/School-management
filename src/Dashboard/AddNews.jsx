@@ -51,6 +51,21 @@ const AddNews = () => {
             })
     };
 
+    const handleDelete = (_id)=>{
+        const url = `http://localhost:5000/delete-news?_id=${_id}`
+
+        fetch(url, {
+            method: "DELETE"
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            toast.success('মুছে ফেলা হয়েছে')
+        })
+
+
+        console.log(url);
+
+    }
 
 
 
@@ -59,7 +74,7 @@ const AddNews = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setnews(data))
-    }, [])
+    }, [handleDelete, handleAddTeacher])
 
 
 
@@ -78,7 +93,7 @@ const AddNews = () => {
                                 <p>{newses.title}</p>
                                 <p>{newses.descripetion}</p>
                                 <div>
-                                    <button  className='text-red-500 absolute bottom-5 bg-white rounded-full shadow'><DeleteIcon/></button>
+                                    <button onClick={()=> handleDelete(newses._id)} className='text-red-500 absolute bottom-5 bg-white rounded-full shadow'><DeleteIcon/></button>
                                 </div>
                                 </div>
                             </div>

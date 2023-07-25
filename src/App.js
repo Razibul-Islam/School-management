@@ -19,6 +19,15 @@ import Ten from "./Dashboard/Class/Ten";
 import Addnotice from "./Dashboard/AddNotice";
 import AddNews from "./Dashboard/AddNews";
 import AddInformation from "./Dashboard/AddInformation";
+import Gallery from "./Pages/Gallery";
+import Contact from "./Pages/Contact";
+import More from "./Components/Notice/More";
+import Principal from "./Pages/Principal";
+import Welcome from "./Pages/Welcome";
+import Latest from "./Pages/Latest";
+import Recent from "./Pages/Recent";
+import AddGallery from "./Dashboard/AddGallery";
+import Rutine from "./Dashboard/Rutine";
 
 function App() {
   return (
@@ -45,7 +54,16 @@ function App() {
             <Route path="/admin/student/class-eight" element={<Eight/>}></Route>
             <Route path="/admin/student/class-nine" element={<Nine/>}></Route>
             <Route path="/admin/student/class-ten" element={<Ten/>}></Route>
+            <Route path="/admin/add-gallery" element={<AddGallery/>}></Route>
+            <Route path="/admin/add-rutine" element={<Rutine/>}></Route>
           </Route>
+          <Route path="/gallery" element={<Gallery />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/more" element={<More />}></Route>
+          <Route path="/principal" element={<Principal />}></Route>
+          <Route path="/welcome" element={<Welcome />}></Route>
+          <Route path="/latest" element={<Latest />}></Route>
+          <Route path="/recent" element={<Recent />}></Route>
         </Route>
       </Routes>
       <ToastContainer />

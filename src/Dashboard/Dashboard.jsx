@@ -12,14 +12,13 @@ const Dashboard = () => {
         <div className='flex'>
             <div className='w-72 bg-teal-600 h-[100vh]'>
                 <hr />
-
-
                 <Link to='/admin/' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><SpaceDashboardIcon /> ড্যাশবোর্ড</Link>
                 <Link to='/admin/add-teacher' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><CastForEducationIcon /> শিক্ষক যোগ করুন</Link>
                 <Link to='/admin/student' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><DrawIcon /> ছাত্র - ছাত্রী যোগ করুন</Link>
                 <Link to='/admin/add-notice' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><NotificationsIcon /> বিজ্ঞপ্তি যোগ করুন</Link>
                 <Link to='/admin/add-news' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><NewspaperIcon /> সর্বশেষ খবর যোগ করুন</Link>
                 <Link to='/admin/add-info' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><InfoIcon /> স্কুল তথ্য যোগ করুন</Link>
+                <Link to='/admin/add-rutine' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><InfoIcon /> রুটিন যোগ করুন</Link>
             </div>
             <div className='w-full'>
                 <Outlet />

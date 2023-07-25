@@ -1,5 +1,6 @@
 import React from "react";
 import principalImage from "../../assets/principal.jpeg";
+import { Link } from "react-router-dom";
 
 const Principal = () => {
   return (
@@ -35,7 +36,9 @@ const Principal = () => {
           ইক্ষ্বাকু আঁজি অংসকুট টঙ্কক
         </p>
         <div className="flex justify-end">
-          <button className="mainBtn mt-2">আরো পড়ুন</button>
+          <Link to="/principal" className="mainBtn mt-2">
+            আরো পড়ুন
+          </Link>
         </div>
       </div>
     </div>

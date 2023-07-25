@@ -1,11 +1,93 @@
-import React from 'react';
+import React from "react";
+import image1 from "../assets/t-1.jpg";
+import image2 from "../assets/t-2.jpg";
 
 const Teachers = () => {
-    return (
-        <div>
-            Teachers
-        </div>
-    );
+  return (
+    <div className="max-w-7xl mx-auto my-10">
+      <h1 className="text-center text-xl mb-5">আমাদের শিক্ষক সমূহ</h1>
+      <div className="grid grid-cols-3 gap-10">
+        <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+          <img alt="Office" src={image1} class="h-56 w-full object-cover" />
+
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg font-medium text-gray-900">নাম : আলী হোসেন</h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              পোস্ট : বাংলা শিক্ষক
+            </h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              মোবাইল নাম্বার : +৮৮০ ৫৪১৫৪৫৪১
+            </h3>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+          <img alt="Office" src={image2} class="h-56 w-full object-cover" />
+
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg font-medium text-gray-900">নাম : আলী হোসেন</h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              পোস্ট : বাংলা শিক্ষক
+            </h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              মোবাইল নাম্বার : +৮৮০ ৫৪১৫৪৫৪১
+            </h3>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+          <img alt="Office" src={image1} class="h-56 w-full object-cover" />
+
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg font-medium text-gray-900">নাম : আলী হোসেন</h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              পোস্ট : বাংলা শিক্ষক
+            </h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              মোবাইল নাম্বার : +৮৮০ ৫৪১৫৪৫৪১
+            </h3>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+          <img alt="Office" src={image2} class="h-56 w-full object-cover" />
+
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg font-medium text-gray-900">নাম : আলী হোসেন</h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              পোস্ট : বাংলা শিক্ষক
+            </h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              মোবাইল নাম্বার : +৮৮০ ৫৪১৫৪৫৪১
+            </h3>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+          <img alt="Office" src={image1} class="h-56 w-full object-cover" />
+
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg font-medium text-gray-900">নাম : আলী হোসেন</h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              পোস্ট : বাংলা শিক্ষক
+            </h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              মোবাইল নাম্বার : +৮৮০ ৫৪১৫৪৫৪১
+            </h3>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+          <img alt="Office" src={image2} class="h-56 w-full object-cover" />
+
+          <div class="p-4 sm:p-6">
+            <h3 class="text-lg font-medium text-gray-900">নাম : আলী হোসেন</h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              পোস্ট : বাংলা শিক্ষক
+            </h3>
+            <h3 class="text-lg font-medium text-gray-900">
+              মোবাইল নাম্বার : +৮৮০ ৫৪১৫৪৫৪১
+            </h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  );
 };
 
 export default Teachers;
