@@ -14,7 +14,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 const Dashboard = () => {
     return (
         <div className='flex'>
-            <div className='w-72 bg-teal-600 h-[100vh]'>
+            <div className='w-72 bg-teal-600 min-h-screen'>
                 <hr />
                 <Link to='/admin/' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><SpaceDashboardIcon /> ড্যাশবোর্ড</Link>
                 <Link to='/admin/add-teacher' className='w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5'><CastForEducationIcon /> শিক্ষক যোগ করুন</Link>

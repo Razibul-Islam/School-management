@@ -13,6 +13,7 @@ const Login = () => {
         const password = e.target.password.value;
 
         if (user_id == '123456' && password == 'password') {
+            localStorage.setItem('user' , '6fjk36djkt4576fh4rf7tf34h47ft4rtgf643r43r6frfee3dr5def3dre53f36543frr53re623f')
             navigate('/admin')
         }else{
             toast.error('কিছু ভুল হয়েছে')
