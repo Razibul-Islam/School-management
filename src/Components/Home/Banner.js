@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import image1 from "../../assets/slide1.png";
 import image2 from "../../assets/slide2.png";
 import image3 from "../../assets/slide3.png";
@@ -13,6 +13,16 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
+  const [notice, setNotice] = useState([]);
+  // const [getId, setGetId] = useState(null);
+
+  useEffect(() => {
+    const url = "http://localhost:5000/get-notice";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setNotice(data));
+  }, []);
+  // console.log(getId);
   return (
     <div className="flex flex-wrap lg:flex-nowrap justify-between items-start px-2 mt-10">
       <div className="lg:w-2/3 w-full">
@@ -69,54 +79,37 @@ const Banner = () => {
         </Swiper>
       </div>
       <div className="md:mx-5 flex flex-col gap-5 w-full">
-        <div className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end">
-          <p>
-            বোর্ড বৃত্তি প্রাপ্ত শিক্ষার্থীদের তথ্য সংশোধন ও Bounced Back
-            সংক্রান্ত অতি জরুরী বিজ্ঞপ্তি
-          </p>
-          <p className="flex justify-between items-center w-full mt-1">
-            <span>01/02/2023</span>
-            <Link to="/more" className="text-[#002147] font-bold text-right">
-              আরো পড়ুন
-            </Link>
-          </p>
-        </div>
-        <div className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end">
-          <p>
-            বোর্ড বৃত্তি প্রাপ্ত শিক্ষার্থীদের তথ্য সংশোধন ও Bounced Back
-            সংক্রান্ত অতি জরুরী বিজ্ঞপ্তি
-          </p>
-          <p className="flex justify-between items-center w-full mt-1">
-            <span>01/02/2023</span>
-            <Link to="/more" className="text-[#002147] font-bold text-right">
-              আরো পড়ুন
-            </Link>
-          </p>
-        </div>
-        <div className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end">
-          <p>
-            বোর্ড বৃত্তি প্রাপ্ত শিক্ষার্থীদের তথ্য সংশোধন ও Bounced Back
-            সংক্রান্ত অতি জরুরী বিজ্ঞপ্তি
-          </p>
-          <p className="flex justify-between items-center w-full mt-1">
-            <span>01/02/2023</span>
-            <Link to="/more" className="text-[#002147] font-bold text-right">
-              আরো পড়ুন
-            </Link>
-          </p>
-        </div>
-        <div className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end">
-          <p>
-            বোর্ড বৃত্তি প্রাপ্ত শিক্ষার্থীদের তথ্য সংশোধন ও Bounced Back
-            সংক্রান্ত অতি জরুরী বিজ্ঞপ্তি
-          </p>
-          <p className="flex justify-between items-center w-full mt-1">
-            <span>01/02/2023</span>
-            <Link to="/more" className="text-[#002147] font-bold text-right">
-              আরো পড়ুন
-            </Link>
-          </p>
-        </div>
+        {notice.slice(0, 3).map((singleNotice, i) => (
+          <div
+            key={i}
+            className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end"
+          >
+            <p className="font-semibold mb-3">{singleNotice.title}</p>
+            <p>
+              {singleNotice.prahgraph.length <= 60
+                ? singleNotice.prahgraph
+                : `${singleNotice.prahgraph.slice(0, 60)}...`}
+            </p>
+            <p className="flex justify-between items-center w-full mt-1">
+              <span>{new Date(singleNotice.time).toLocaleString()}</span>
+              {/* <Link
+                onClick={() => setGetId(singleNotice._id)}
+                to="/more"
+                className="text-[#002147] font-bold text-right"
+              >
+                আরো পড়ুন
+              </Link> */}
+              {/* <div onClick={() => setGetId(singleNotice._id)}> */}
+              <Link
+                to={`/more/${singleNotice._id}`}
+                className="text-[#002147] font-bold text-right"
+              >
+                আরো পড়ুন
+              </Link>
+              {/* </div> */}
+            </p>
+          </div>
+        ))}
         <div className="flex justify-end items-center">
           <Link
             to="/notice"
