@@ -26,7 +26,7 @@ const Rutine = () => {
                 const pdfRutine = 'https://' + data.url
                 if (data) {
                     const info = { classes, pdfRutine };
-                    fetch('http://localhost:5000/add-rutine', {
+                    fetch('https://school-server-razibul-islam.vercel.app/add-rutine', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'
@@ -47,7 +47,7 @@ const Rutine = () => {
 
 
     const handleDeleteRutin = (_id)=>{
-        const url = `http://localhost:5000/delete-rutin?_id=${_id}`
+        const url = `https://school-server-razibul-islam.vercel.app/delete-rutin?_id=${_id}`
         fetch(url, {
             method: 'DELETE',
         })
@@ -62,7 +62,7 @@ const Rutine = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/rutin")
+        fetch("https://school-server-razibul-islam.vercel.app/rutin")
             .then((res) => res.json())
             .then((data) => setRoutines(data));
     }, [handleAddRutine , handleDeleteRutin]);

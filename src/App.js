@@ -37,7 +37,6 @@ import RequireAuth from "./Dashboard/RequireAuth";
 
 import Routine from "./Pages/Routine";
 
-
 function App() {
   return (
     <div>
@@ -49,74 +48,62 @@ function App() {
           <Route path="/student" element={<Students />}></Route>
           <Route path="/notice" element={<Notice />}></Route>
           <Route path="/routine" element={<Routine />}></Route>
-
-          {/* dashboard  */}
-          <Route path="/login" element={<Login />}></Route>
-
-          <Route path="/admin" element={<RequireAuth>
-            <Dashboard />
-          </RequireAuth>}>
-
-          <Route path="/admin" element={<Dashboard />}>
-
-            <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
-            <Route path="/admin/student" element={<Student />}></Route>
-            <Route path="/admin/add-notice" element={<Addnotice />}></Route>
-            <Route path="/admin/add-news" element={<AddNews />}></Route>
-            <Route path="/admin/add-info" element={<AddInformation />}></Route>
-            <Route path="/admin/student/class-six" element={<Six />}></Route>
-
-            <Route path="/admin/student/class-saven" element={<Saven />}></Route>
-            <Route path="/admin/student/class-eight" element={<Eight />}></Route>
-
-            <Route
-              path="/admin/student/class-saven"
-              element={<Saven />}
-            ></Route>
-            <Route
-              path="/admin/student/class-eight"
-              element={<Eight />}
-            ></Route>
-
-            <Route path="/admin/student/class-nine" element={<Nine />}></Route>
-            <Route path="/admin/student/class-ten" element={<Ten />}></Route>
-            <Route path="/admin/add-gallery" element={<AddGallery />}></Route>
-            <Route path="/admin/add-rutine" element={<Rutine />}></Route>
-          </Route>
-          <Route path="/gallery" element={<Gallery />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/more" element={<More />}></Route>
-          <Route path="/principal" element={<Principal />}></Route>
-          <Route path="/welcome" element={<Welcome />}></Route>
-          <Route path="/latest" element={<Latest />}></Route>
-          {/* dashboard  */}
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/admin" element={<Dashboard />}>
-            <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
-            <Route path="/admin/student" element={<Student />}></Route>
-            <Route path="/admin/add-notice" element={<Addnotice />}></Route>
-            <Route path="/admin/add-news" element={<AddNews />}></Route>
-            <Route path="/admin/add-info" element={<AddInformation />}></Route>
-            <Route path="/admin/adminCart" element={<AdmitCart />}></Route>
-            <Route path="/admin/student/class-six" element={<Six />}></Route>
-            <Route
-              path="/admin/student/class-saven"
-              element={<Saven />}
-            ></Route>
-            <Route
-              path="/admin/student/class-eight"
-              element={<Eight />}
-            ></Route>
-            <Route path="/admin/student/class-nine" element={<Nine />}></Route>
-            <Route path="/admin/student/class-ten" element={<Ten />}></Route>
-          </Route>
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/more/:id" element={<More />}></Route>
           <Route path="/principal" element={<Principal />}></Route>
           <Route path="/welcome" element={<Welcome />}></Route>
           <Route path="/latest/:id" element={<Latest />}></Route>
-          <Route path="/recent" element={<Recent />}></Route>
+
+          {/* dashboard  */}
+          <Route path="/login" element={<Login />}></Route>
+
+          <Route
+            path="/admin"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          >
+            <Route path="/admin" element={<Dashboard />}>
+              <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
+              <Route path="/admin/student" element={<Student />}></Route>
+              <Route path="/admin/add-notice" element={<Addnotice />}></Route>
+              <Route path="/admin/add-news" element={<AddNews />}></Route>
+              <Route
+                path="/admin/add-info"
+                element={<AddInformation />}
+              ></Route>
+              <Route path="/admin/student/class-six" element={<Six />}></Route>
+
+              <Route
+                path="/admin/student/class-saven"
+                element={<Saven />}
+              ></Route>
+              <Route
+                path="/admin/student/class-eight"
+                element={<Eight />}
+              ></Route>
+
+              <Route
+                path="/admin/student/class-saven"
+                element={<Saven />}
+              ></Route>
+              <Route
+                path="/admin/student/class-eight"
+                element={<Eight />}
+              ></Route>
+
+              <Route
+                path="/admin/student/class-nine"
+                element={<Nine />}
+              ></Route>
+              <Route path="/admin/student/class-ten" element={<Ten />}></Route>
+              <Route path="/admin/add-gallery" element={<AddGallery />}></Route>
+              <Route path="/admin/add-rutine" element={<Rutine />}></Route>
+            </Route>
+          </Route>
         </Route>
       </Routes>
       <ToastContainer />
