@@ -4,6 +4,8 @@ import image2 from "../../assets/slide2.png";
 import image3 from "../../assets/slide3.png";
 import image4 from "../../assets/slide4.png";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -17,14 +19,14 @@ const Banner = () => {
   // const [getId, setGetId] = useState(null);
 
   useEffect(() => {
-    const url = "http://localhost:5000/get-notice";
+    const url = "https://school-server-razibul-islam.vercel.app/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));
   }, []);
   // console.log(getId);
   return (
-    <div className="flex flex-wrap lg:flex-nowrap justify-between items-start px-2 mt-10">
+    <div className="flex flex-wrap lg:flex-nowrap justify-between items-start mt-10 ">
       <div className="lg:w-2/3 w-full">
         <Swiper
           slidesPerView={1}
@@ -78,44 +80,32 @@ const Banner = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="md:mx-5 flex flex-col gap-5 w-full">
+      <div className="ml-5 mt-5 lg:mt-0 flex flex-col w-full">
         {notice.slice(0, 3).map((singleNotice, i) => (
-          <div
-            key={i}
-            className="border-2 border-blue-200 p-3 rounded flex flex-col justify-center items-end"
-          >
-            <p className="font-semibold mb-3">{singleNotice.title}</p>
+          <div key={i} className="p-2 bg-slate-100 my-2">
+            <p className="my-2 text-teal-600">{singleNotice.title}</p>
             <p>
               {singleNotice.prahgraph.length <= 60
                 ? singleNotice.prahgraph
                 : `${singleNotice.prahgraph.slice(0, 60)}...`}
             </p>
-            <p className="flex justify-between items-center w-full mt-1">
-              <span>{new Date(singleNotice.time).toLocaleString()}</span>
-              {/* <Link
-                onClick={() => setGetId(singleNotice._id)}
-                to="/more"
-                className="text-[#002147] font-bold text-right"
-              >
-                আরো পড়ুন
-              </Link> */}
-              {/* <div onClick={() => setGetId(singleNotice._id)}> */}
+            <p className="flex justify-between items-center w-full mt-2 text-teal-500">
+              <span>
+                <CalendarMonthIcon className="mr-1" />
+                {new Date(singleNotice.time).toLocaleString()}
+              </span>
               <Link
                 to={`/more/${singleNotice._id}`}
-                className="text-[#002147] font-bold text-right"
+                className="rounded-3xl bg-teal-300 px-3 py-2 bg-gradient-to-r from-teal-500 to-green-300 text-white font-bold text-right flex items-center"
               >
-                আরো পড়ুন
+                আরো পড়ুন <ArrowForwardIcon />
               </Link>
-              {/* </div> */}
             </p>
           </div>
         ))}
-        <div className="flex justify-end items-center">
-          <Link
-            to="/notice"
-            className="text-xl mr-2 font-bold cursor-pointer inline-block mainBtn"
-          >
-            See All
+        <div className="flex justify-end items-center mt-3">
+          <Link to="/notice" className="mainBtn mt-2">
+            আরো দেখুন
           </Link>
         </div>
       </div>

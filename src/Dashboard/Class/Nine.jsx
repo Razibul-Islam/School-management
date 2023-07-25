@@ -25,7 +25,7 @@ const Nine = () => {
         console.log(info);
 
 
-        const url = `http://localhost:5000/add-student`;
+        const url = `https://school-server-razibul-islam.vercel.app/add-student`;
 
         fetch(url, {
             method: "Post",
@@ -46,7 +46,7 @@ const Nine = () => {
 
 
     const handleDeleteStudent = (_id) => {
-        const url = `http://localhost:5000/delete-student?_id=${_id}`;
+        const url = `https://school-server-razibul-islam.vercel.app/delete-student?_id=${_id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -61,7 +61,7 @@ const Nine = () => {
 
 
     useEffect(() => {
-        const url = 'http://localhost:5000/get-student?class_id=9';
+        const url = 'https://school-server-razibul-islam.vercel.app/get-student?class_id=9';
         fetch(url)
             .then(res => res.json())
             .then(data => setStudent(data))
