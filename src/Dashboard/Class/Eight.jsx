@@ -68,6 +68,10 @@ const Eight = () => {
 
 
 
+    const handlePrint = ()=>{
+        // window.document.getElementById('table').?print()
+    }
+
 
     return (
         <div className='p-5'>
@@ -80,7 +84,7 @@ const Eight = () => {
 
 
             <div>
-                <table>
+                <table id='table'>
                     <tr>
                         <th>রোল</th>
                         <th>নাম</th>

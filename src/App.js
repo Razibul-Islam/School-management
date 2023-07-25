@@ -31,6 +31,7 @@ import Recent from "./Pages/Recent";
 import AddGallery from "./Dashboard/AddGallery";
 import Rutine from "./Dashboard/Rutine";
 import MoreRoute from "./MoreRoute";
+import AdmitCart from "./Dashboard/AdmitCart";
 
 function App() {
   return (
@@ -74,6 +75,7 @@ function App() {
             <Route path="/admin/add-notice" element={<Addnotice />}></Route>
             <Route path="/admin/add-news" element={<AddNews />}></Route>
             <Route path="/admin/add-info" element={<AddInformation />}></Route>
+            <Route path="/admin/adminCart" element={<AdmitCart />}></Route>
             <Route path="/admin/student/class-six" element={<Six />}></Route>
             <Route
               path="/admin/student/class-saven"
@@ -89,7 +91,6 @@ function App() {
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/more/:id" element={<More />}></Route>
-          {/* <Route path="/more/:id" element={<MoreRoute />} />; */}
           <Route path="/principal" element={<Principal />}></Route>
           <Route path="/welcome" element={<Welcome />}></Route>
           <Route path="/latest/:id" element={<Latest />}></Route>

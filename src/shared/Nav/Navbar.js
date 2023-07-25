@@ -36,12 +36,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/gallery" className="font-medium tracking-wide   text-xl">
+              <Link to="/gallery" className="font-medium tracking-wide">
                 গ্যালারী
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="font-medium tracking-wide   text-xl">
+              <Link to="/contact" className="font-medium tracking-wide">
                 যোগাযোগ
               </Link>
             </li>

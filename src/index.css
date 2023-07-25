@@ -12,6 +12,17 @@ body {
   }
 }
 
+/* Print styles for the component */
+@media print {
+  .print-content {
+    font-size: 12px;
+  }
+
+  @page {
+    size: 8.3in 5.85in;
+    margin: 0.5in;
+  }
+}
 
 
 table {
@@ -19,7 +30,8 @@ table {
   width: 100%;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px;
 }
@@ -29,6 +41,6 @@ tr:nth-child(even) {
 }
 
 th {
-  background-color: #0D9488;
+  background-color: #0d9488;
   color: white;
 }
