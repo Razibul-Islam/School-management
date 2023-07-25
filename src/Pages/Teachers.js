@@ -6,7 +6,7 @@ const Teachers = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/get-teacher";
+    const url = "https://school-server-razibul-islam.vercel.app/get-teacher";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTeacherData(data));
@@ -15,7 +15,7 @@ const Teachers = () => {
   return (
     <div className="max-w-7xl mx-auto my-10">
       <h1 className="text-center text-xl mb-5">আমাদের শিক্ষক সমূহ</h1>
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
         {teacherData.map((teacher, i) => (
           <article
             key={i}
@@ -27,7 +27,7 @@ const Teachers = () => {
               class="h-56 w-full object-cover"
             />
 
-            <div class="p-4 sm:p-6">
+            <div class="p-4 sm:p-6 text-center">
               <h3 class="text-lg font-medium text-gray-900">
                 নাম : {teacher.name}
               </h3>

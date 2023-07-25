@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="my-20 flex flex-wrap lg:flex-nowrap justify-between items-start gap-10 px-5 lg:px-0">
+    <div className="my-40 flex flex-wrap lg:flex-nowrap justify-between items-end gap-10 px-5 lg:px-0">
       <div className="lg:w-2/3">
-        <h1 className="text-xl mb-5">আমাদের স্কুল এ স্বাগতম</h1>
+        <h1 className="text-xl mb-5 text-teal-700">আমাদের স্কুল এ স্বাগতম</h1>
         <p className="text-justify">
           জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে
           সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে
@@ -36,7 +36,7 @@ const Welcome = () => {
       </div>
       <div className="w-full lg:w-auto mt-5">
         <iframe
-          className="lg:w-[403px] h-80 w-full"
+          className="lg:w-[403px] h-72 w-full"
           src="https://www.youtube.com/embed/feVAKA4yen4"
           title="YouTube video player"
           frameBorder="0"

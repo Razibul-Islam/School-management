@@ -30,7 +30,7 @@ const AddNews = () => {
                 const imgUrl = data.url;
                 const info = { title, descripetion, imgUrl, time };
                 if (data.url) {
-                    const url = `http://localhost:5000/add-news`;
+                    const url = `https://school-server-razibul-islam.vercel.app/add-news`;
 
                     fetch(url, {
                         method: "POST",
@@ -52,7 +52,7 @@ const AddNews = () => {
     };
 
     const handleDelete = (_id)=>{
-        const url = `http://localhost:5000/delete-news?_id=${_id}`
+        const url = `https://school-server-razibul-islam.vercel.app/delete-news?_id=${_id}`
 
         fetch(url, {
             method: "DELETE"
@@ -70,7 +70,7 @@ const AddNews = () => {
 
 
     useEffect(() => {
-        const url = 'http://localhost:5000/get-news';
+        const url = 'https://school-server-razibul-islam.vercel.app/get-news';
         fetch(url)
             .then(res => res.json())
             .then(data => setnews(data))
