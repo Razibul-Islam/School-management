@@ -8,7 +8,7 @@ const Latest = () => {
 
   console.log(data);
   useEffect(() => {
-    fetch(`http://localhost:5000/get-news-single-view?_id=${id}`)
+    fetch(`https://school-server-razibul-islam.vercel.app/get-news-single-view?_id=${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);
@@ -16,7 +16,7 @@ const Latest = () => {
   return (
     <div className="max-w-7xl mx-auto my-10 px-5 lg:px-0">
       <h1 className="text-xl font-semibold flex justify-between items-center">
-        <span>{data.title}</span>
+        <span className="">{data.title}</span>
         <span className="font-normal text-base">
           {data.time ? new Date(data.time).toLocaleString() : <div></div>}
           <button className="font-bold ml-5">শেয়ার করুন</button>

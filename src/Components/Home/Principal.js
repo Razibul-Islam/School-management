@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Principal = () => {
   return (
-    <div className="my-10 flex flex-wrap lg:flex-nowrap justify-between items-start gap-10 px-5 lg:px-0">
+    <div className="my-20 flex flex-wrap lg:flex-nowrap justify-between items-start gap-10 px-5 lg:px-0">
       <div className="w-full lg:w-auto">
         <img
           src={principalImage}
@@ -13,7 +13,7 @@ const Principal = () => {
         />
       </div>
       <div className="lg:w-2/3">
-        <h1 className="text-xl mb-5">প্রধান অধ্যক্ষের বাণী</h1>
+        <h1 className="text-xl mb-5 text-teal-700">প্রধান অধ্যক্ষের বাণী</h1>
         <p className="text-justify">
           জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে
           সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে
