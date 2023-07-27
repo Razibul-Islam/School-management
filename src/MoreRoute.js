@@ -9,7 +9,7 @@ const MoreRoute = ({ path }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/single-notice/${path}`
+          `https://school-server-liard.vercel.app/single-notice/${path}`
         );
         const data = await response.json();
         setData(data);

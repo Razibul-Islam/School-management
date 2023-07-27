@@ -25,7 +25,7 @@ const AddGallery = () => {
         const teacherImg = data.url;
         if (data) {
           const data = { caption, teacherImg };
-          const url = `http://localhost:5000/add-gallery`;
+          const url = `https://school-server-liard.vercel.app/add-gallery`;
           fetch(url, {
             method: "POST",
             headers: {
@@ -47,7 +47,7 @@ const AddGallery = () => {
   };
 
   const handledeleteTeacher = (_id) => {
-    const url = `http://localhost:5000/gallery?_id=${_id}`;
+    const url = `https://school-server-liard.vercel.app/gallery?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -60,7 +60,7 @@ const AddGallery = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/gallery")
+    fetch("https://school-server-liard.vercel.app/gallery")
       .then((res) => res.json())
       .then((data) => setTeacher(data));
   }, [handleAddGallery, handledeleteTeacher]);

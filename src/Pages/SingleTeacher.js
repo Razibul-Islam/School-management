@@ -6,7 +6,7 @@ const SingleTeacher = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     console.log(id);
-    fetch(`http://localhost:5000/single-teacher?_id=${id}`)
+    fetch(`https://school-server-liard.vercel.app/single-teacher?_id=${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);

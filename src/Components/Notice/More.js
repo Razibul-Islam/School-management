@@ -7,7 +7,7 @@ const More = ({ path }) => {
   useEffect(() => {
     console.log(id);
     fetch(
-      `http://localhost:5000/single-notice?_id=${id}`
+      `https://school-server-liard.vercel.app/single-notice?_id=${id}`
     )
       .then((res) => res.json())
       .then((data) => setData(data));
