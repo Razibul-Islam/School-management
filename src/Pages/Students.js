@@ -7,7 +7,7 @@ const Students = () => {
   const [studentData, setStudentData] = useState([]);
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-allStudent";
+    const url = "https://school-server-liard.vercel.app/get-allStudent";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setStudentData(data));
