@@ -19,11 +19,10 @@ body {
   }
 
   @page {
-    size: 8.3in 5.85in;
-    margin: 0.5in;
+    size: A4;
+    scale: 0.7;
   }
 }
-
 
 table {
   border-collapse: collapse;

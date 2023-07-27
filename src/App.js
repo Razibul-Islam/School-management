@@ -36,6 +36,7 @@ import AdmitCart from "./Dashboard/AdmitCart";
 import RequireAuth from "./Dashboard/RequireAuth";
 
 import Routine from "./Pages/Routine";
+import SingleTeacher from "./Pages/SingleTeacher";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/teachers" element={<Teachers />}></Route>
-          <Route path="/student" element={<Students />}></Route>
+          <Route path="/teacher/:id" element={<SingleTeacher />}></Route>
+          {/* <Route path="/student" element={<Students />}></Route> */}
           <Route path="/notice" element={<Notice />}></Route>
           <Route path="/routine" element={<Routine />}></Route>
           <Route path="/gallery" element={<Gallery />}></Route>
@@ -66,43 +68,38 @@ function App() {
               </RequireAuth>
             }
           >
-            <Route path="/admin" element={<Dashboard />}>
-              <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
-              <Route path="/admin/student" element={<Student />}></Route>
-              <Route path="/admin/add-notice" element={<Addnotice />}></Route>
-              <Route path="/admin/add-news" element={<AddNews />}></Route>
-              <Route
-                path="/admin/add-info"
-                element={<AddInformation />}
-              ></Route>
-              <Route path="/admin/student/class-six" element={<Six />}></Route>
+            {/* <Route path="/admin" element={<Dashboard />}> */}
+            <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
+            <Route path="/admin/student" element={<Student />}></Route>
+            <Route path="/admin/add-notice" element={<Addnotice />}></Route>
+            <Route path="/admin/add-news" element={<AddNews />}></Route>
+            <Route path="/admin/add-info" element={<AddInformation />}></Route>
+            <Route path="/admin/student/class-six" element={<Six />}></Route>
 
-              <Route
-                path="/admin/student/class-saven"
-                element={<Saven />}
-              ></Route>
-              <Route
-                path="/admin/student/class-eight"
-                element={<Eight />}
-              ></Route>
+            <Route
+              path="/admin/student/class-saven"
+              element={<Saven />}
+            ></Route>
+            <Route
+              path="/admin/student/class-eight"
+              element={<Eight />}
+            ></Route>
 
-              <Route
-                path="/admin/student/class-saven"
-                element={<Saven />}
-              ></Route>
-              <Route
-                path="/admin/student/class-eight"
-                element={<Eight />}
-              ></Route>
+            <Route
+              path="/admin/student/class-saven"
+              element={<Saven />}
+            ></Route>
+            <Route
+              path="/admin/student/class-eight"
+              element={<Eight />}
+            ></Route>
 
-              <Route
-                path="/admin/student/class-nine"
-                element={<Nine />}
-              ></Route>
-              <Route path="/admin/student/class-ten" element={<Ten />}></Route>
-              <Route path="/admin/add-gallery" element={<AddGallery />}></Route>
-              <Route path="/admin/add-rutine" element={<Rutine />}></Route>
-            </Route>
+            <Route path="/admin/student/class-nine" element={<Nine />}></Route>
+            <Route path="/admin/student/class-ten" element={<Ten />}></Route>
+            <Route path="/admin/add-gallery" element={<AddGallery />}></Route>
+            <Route path="/admin/add-rutine" element={<Rutine />}></Route>
+            <Route path="/admin/admincart" element={<AdmitCart />}></Route>
+            {/* </Route> */}
           </Route>
         </Route>
       </Routes>
