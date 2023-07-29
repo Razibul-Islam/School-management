@@ -67,7 +67,7 @@ const Ten = () => {
 
 
     const handleDeleteStudent = (_id) => {
-        const url = `https://school-server-razibul-islam.vercel.app/delete-student?_id=${_id}`;
+        const url = `https://school-server-liard.vercel.app/delete-student?_id=${_id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -98,13 +98,13 @@ const Ten = () => {
         const phone = data.phone.value;
         const address = data.address.value;
         const id = data.id.value;
-        const class_id = '9';
+        const class_id = '10';
 
         const info = { name, role, yourClass, father_name, mother_name, date_of_birth, class_id, dipperment, phone, address, id };
 
 
 
-        const url = `http://localhost:5000/update-student`;
+        const url = `https://school-server-razibul-islam.vercel.app/update-student`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -124,7 +124,7 @@ const Ten = () => {
 
 
     useEffect(() => {
-        const url = 'https://school-server-razibul-islam.vercel.app/get-student?class_id=10';
+        const url = 'https://school-server-liard.vercel.app/get-student?class_id=10';
         fetch(url)
             .then(res => res.json())
             .then(data => setStudent(data))

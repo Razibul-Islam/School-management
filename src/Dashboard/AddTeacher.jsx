@@ -34,7 +34,7 @@ const AddTeacher = () => {
             .then(data => {
                 const teacherImg = data.url;
                 if (data) {
-                    const data = { name, post, phone, teacherImg, address , email, mother_name , father_name};
+                    const data = { name, post, phone, teacherImg, address , email, mother_name , };
                     const url = `https://school-server-razibul-islam.vercel.app/add-teacher`;
                     fetch(url, {
                         method: "POST",

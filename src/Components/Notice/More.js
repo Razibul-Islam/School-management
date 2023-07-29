@@ -6,7 +6,9 @@ const More = ({ path }) => {
   const [data, setData] = useState({});
   useEffect(() => {
     console.log(id);
-    fetch(`https://school-server-razibul-islam.vercel.app/single-notice?_id=${id}`)
+    fetch(
+      `https://school-server-liard.vercel.app/single-notice?_id=${id}`
+    )
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);

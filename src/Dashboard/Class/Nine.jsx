@@ -30,7 +30,7 @@ const Nine = () => {
         const phone = data.phone.value;
         const address = data.address.value;
         const img = data.img.files[0];
-        const class_id = '8';
+        const class_id = '9';
 
         var formData = new FormData();
         formData.append("file", img);
@@ -104,7 +104,7 @@ const Nine = () => {
 
 
 
-        const url = `http://localhost:5000/update-student`;
+        const url = `https://school-server-razibul-islam.vercel.app/update-student`;
         fetch(url, {
             method: "PUT",
             headers: {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import { useReactToPrint } from 'react-to-print';
 
 const Saven = () => {
 
@@ -30,7 +30,7 @@ const Saven = () => {
         const phone = data.phone.value;
         const address = data.address.value;
         const img = data.img.files[0];
-        const class_id = '6';
+        const class_id = '7';
 
         var formData = new FormData();
         formData.append("file", img);
@@ -104,7 +104,7 @@ const Saven = () => {
 
 
 
-        const url = `http://localhost:5000/update-student`;
+        const url = `https://school-server-razibul-islam.vercel.app/update-student`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -130,7 +130,7 @@ const Saven = () => {
             .then(data => setStudent(data))
     }, [handleDeleteStudent, handleAddStudent, handleSubmitEdit])
 
-    // handleDeleteStudent, handleAddStudent
+    // 
 
 
 
@@ -250,6 +250,5 @@ const Saven = () => {
         </div>
     );
 };
-
 
 export default Saven;

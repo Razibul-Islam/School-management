@@ -104,7 +104,7 @@ const Six = () => {
 
 
 
-        const url = `http://localhost:5000/update-student`;
+        const url = `https://school-server-razibul-islam.vercel.app/update-student`;
         fetch(url, {
             method: "PUT",
             headers: {

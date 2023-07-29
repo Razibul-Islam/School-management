@@ -98,13 +98,13 @@ const Eight = () => {
         const phone = data.phone.value;
         const address = data.address.value;
         const id = data.id.value;
-        const class_id = '7';
+        const class_id = '8';
 
         const info = { name, role, yourClass, father_name, mother_name, date_of_birth, class_id, dipperment, phone, address, id };
 
 
 
-        const url = `http://localhost:5000/update-student`;
+        const url = `https://school-server-razibul-islam.vercel.app/update-student`;
         fetch(url, {
             method: "PUT",
             headers: {

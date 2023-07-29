@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import image from "../assets/news1.jpeg";
 import { useParams } from "react-router-dom";
 
 const Latest = () => {
@@ -8,7 +7,9 @@ const Latest = () => {
 
   console.log(data);
   useEffect(() => {
-    fetch(`https://school-server-razibul-islam.vercel.app/get-news-single-view?_id=${id}`)
+    fetch(
+      `https://school-server-liard.vercel.app/get-news-single-view?_id=${id}`
+    )
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);

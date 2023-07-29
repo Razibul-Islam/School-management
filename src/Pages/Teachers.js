@@ -1,44 +1,41 @@
 import React, { useEffect, useState } from "react";
-// import image1 from "../assets/t-1.jpg";
-// import image2 from "../assets/t-2.jpg";
+import { Link } from "react-router-dom";
 
 const Teachers = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-teacher";
+    const url = "https://school-server-liard.vercel.app/get-teacher";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTeacherData(data));
   }, []);
   // console.log(teacherData);
   return (
-    <div className="max-w-7xl mx-auto my-10">
+    <div className="max-w-6xl mx-auto my-10">
       <h1 className="text-center text-xl mb-5">আমাদের শিক্ষক সমূহ</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
         {teacherData.map((teacher, i) => (
-          <article
+          <div
             key={i}
-            class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
+            className="bg-slate-100 rounded-sm overflow-hidden relative "
           >
             <img
-              alt="Office"
-              src={`https://${teacher.teacherImg}`}
-              class="h-56 w-full object-cover"
+              className="h-60 w-full object-cover"
+              src={"https://" + teacher.teacherImg}
+              alt=""
             />
-
-            <div class="p-4 sm:p-6 text-center">
-              <h3 class="text-lg font-medium text-gray-900">
-                নাম : {teacher.name}
-              </h3>
-              <h3 class="text-lg font-medium text-gray-900">
-                পোস্ট : {teacher.post}
-              </h3>
-              <h3 class="text-lg font-medium text-gray-900">
-                মোবাইল নাম্বার : {teacher.phone}
-              </h3>
+            <div className="text-center my-4">
+              <h4>{teacher.post}</h4>
+              <h4 className="my-2">{teacher.name}</h4>
+              <Link
+                to={`/teacher/${teacher._id}`}
+                className="rounded-3xl inline-block bg-teal-300 px-3 py-2 bg-gradient-to-r from-teal-500 to-green-300 text-white font-bold text-right"
+              >
+                আরো দেখুন
+              </Link>
             </div>
-          </article>
+          </div>
         ))}
       </div>
     </div>
