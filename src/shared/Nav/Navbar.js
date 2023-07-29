@@ -25,11 +25,7 @@ const Navbar = () => {
                 শিক্ষক
               </Link>
             </li>
-            {/* <li>
-              <Link to="/student" className="font-medium tracking-wide">
-                ছাত্র-ছাত্রী
-              </Link>
-            </li> */}
+
             <li>
               <Link to="/notice" className="font-medium tracking-wide">
                 বিজ্ঞপ্তি
@@ -43,6 +39,16 @@ const Navbar = () => {
             <li>
               <Link to="/routine" className="font-medium tracking-wide">
                 রুটিন
+              </Link>
+            </li>
+            <li>
+              <Link to="/smc" className="font-medium tracking-wide">
+                এসএমসি
+              </Link>
+            </li>
+            <li>
+              <Link to="/result" className="font-medium tracking-wide">
+                রেজাল্ট
               </Link>
             </li>
             <li>

@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import About from "./Pages/About";
 import Teachers from "./Pages/Teachers";
-import Students from "./Pages/Students";
 import Notice from "./Pages/Notice";
 import Main from "./Pages/Main";
 import Home from "./Pages/Home";
+import SMC from "./Pages/SMC";
 
 import Login from "./Dashboard/Login";
 import { ToastContainer } from "react-toastify";
@@ -27,16 +27,16 @@ import More from "./Components/Notice/More";
 import Principal from "./Pages/Principal";
 import Welcome from "./Pages/Welcome";
 import Latest from "./Pages/Latest";
-import Recent from "./Pages/Recent";
 import AddGallery from "./Dashboard/AddGallery";
 import Rutine from "./Dashboard/Rutine";
-import MoreRoute from "./MoreRoute";
 import AdmitCart from "./Dashboard/AdmitCart";
 
 import RequireAuth from "./Dashboard/RequireAuth";
 
 import Routine from "./Pages/Routine";
 import SingleTeacher from "./Pages/SingleTeacher";
+import Result from "./Pages/Result";
+import StudentCabinet from "./Dashboard/StudentCabinet";
 
 function App() {
   return (
@@ -47,7 +47,8 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/teachers" element={<Teachers />}></Route>
           <Route path="/teacher/:id" element={<SingleTeacher />}></Route>
-          {/* <Route path="/student" element={<Students />}></Route> */}
+          <Route path="/smc" element={<SMC />}></Route>
+          <Route path="/result" element={<Result />}></Route>
           <Route path="/notice" element={<Notice />}></Route>
           <Route path="/routine" element={<Routine />}></Route>
           <Route path="/gallery" element={<Gallery />}></Route>
@@ -74,6 +75,10 @@ function App() {
             <Route path="/admin/add-notice" element={<Addnotice />}></Route>
             <Route path="/admin/add-news" element={<AddNews />}></Route>
             <Route path="/admin/add-info" element={<AddInformation />}></Route>
+            <Route
+              path="/admin/studentCabinet"
+              element={<StudentCabinet />}
+            ></Route>
             <Route path="/admin/student/class-six" element={<Six />}></Route>
 
             <Route

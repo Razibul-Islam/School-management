@@ -19,7 +19,7 @@ const Banner = () => {
   // const [getId, setGetId] = useState(null);
 
   useEffect(() => {
-    const url = "https://school-server-liard.vercel.app/get-notice";
+    const url = "http://localhost:5000/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));

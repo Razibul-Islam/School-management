@@ -8,7 +8,7 @@ const Latest = () => {
   console.log(data);
   useEffect(() => {
     fetch(
-      `https://school-server-liard.vercel.app/get-news-single-view?_id=${id}`
+      `http://localhost:5000/get-news-single-view?_id=${id}`
     )
       .then((res) => res.json())
       .then((data) => setData(data));

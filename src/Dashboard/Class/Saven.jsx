@@ -24,7 +24,7 @@ const Saven = () => {
         console.log(info);
 
 
-        const url = `https://school-server-liard.vercel.app/add-student`;
+        const url = `http://localhost:5000/add-student`;
 
         fetch(url, {
             method: "Post",
@@ -45,7 +45,7 @@ const Saven = () => {
 
 
     const handleDeleteStudent = (_id) => {
-        const url = `https://school-server-liard.vercel.app/delete-student?_id=${_id}`;
+        const url = `http://localhost:5000/delete-student?_id=${_id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -60,7 +60,7 @@ const Saven = () => {
 
 
     useEffect(() => {
-        const url = 'https://school-server-liard.vercel.app/get-student?class_id=7';
+        const url = 'http://localhost:5000/get-student?class_id=7';
         fetch(url)
             .then(res => res.json())
             .then(data => setStudent(data))
@@ -112,12 +112,12 @@ const Saven = () => {
 
 
             {/* modal */}
-            <div class={`relative z-10 ${modal}`} aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-                <div class="fixed inset-0 z-10 overflow-y-auto">
-                    <form onSubmit={handleAddStudent} class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div className={`relative z-10 ${modal}`} aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div className="fixed inset-0 z-10 overflow-y-auto">
+                    <form onSubmit={handleAddStudent} className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                 <input name='name' className='block my-3 focus:outline-none border w-full p-2' type="text" placeholder='নাম প্রবেশ করান' />
                                 <input name='role' className='block my-3 focus:outline-none border w-full p-2' type="text" placeholder='রোল নাম্বার প্রবেশ করান' />
                                 <select name='class' className='block my-3 focus:outline-none border w-full p-2'>

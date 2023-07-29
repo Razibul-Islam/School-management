@@ -27,7 +27,7 @@ const AddTeacher = () => {
         const teacherImg = data.url;
         if (data) {
           const data = { name, post, phone, teacherImg };
-          const url = `https://school-server-liard.vercel.app/add-teacher`;
+          const url = `http://localhost:5000/add-teacher`;
           fetch(url, {
             method: "POST",
             headers: {
@@ -48,7 +48,7 @@ const AddTeacher = () => {
   };
 
   const handledeleteTeacher = (_id) => {
-    const url = `https://school-server-liard.vercel.app/delete-teacher?_id=${_id}`;
+    const url = `http://localhost:5000/delete-teacher?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -61,7 +61,7 @@ const AddTeacher = () => {
   };
 
   useEffect(() => {
-    fetch("https://school-server-liard.vercel.app/get-teacher")
+    fetch("http://localhost:5000/get-teacher")
       .then((res) => res.json())
       .then((data) => setTeacher(data));
   }, [handleAddTeacher, handledeleteTeacher]);
@@ -104,19 +104,19 @@ const AddTeacher = () => {
       </div>
 
       <div
-        class={`relative z-10 ${modal}`}
+        className={`relative z-10 ${modal}`}
         aria-labelledby="modal-title"
         role="dialog"
         aria-modal="true"
       >
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <form
               onSubmit={handleAddTeacher}
-              class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+              className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
             >
-              <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <input
                   className="block my-3 focus:outline-none border w-full p-2"
                   type="text"

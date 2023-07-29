@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const BasicInformation = () => {
   const [info, setInfo] = useState({});
   useEffect(() => {
-    fetch("https://school-server-liard.vercel.app/information")
+    fetch("http://localhost:5000/information")
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);

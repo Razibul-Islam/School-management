@@ -12,7 +12,7 @@ const AddInformation = () => {
     const totat_gpa_five = e.target.totat_gpa_five.value;
 
     const data = { founded, regularStudent, teacher, totat_gpa_five };
-    const url = `https://school-server-liard.vercel.app/school-information`;
+    const url = `http://localhost:5000/school-information`;
 
     fetch(url, {
       method: "PUT",
@@ -26,7 +26,7 @@ const AddInformation = () => {
   };
 
   useEffect(() => {
-    fetch("https://school-server-liard.vercel.app/information")
+    fetch("http://localhost:5000/information")
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);
@@ -63,19 +63,19 @@ const AddInformation = () => {
       }
 
       <div
-        class={`relative z-10 ${modal}`}
+        className={`relative z-10 ${modal}`}
         aria-labelledby="modal-title"
         role="dialog"
         aria-modal="true"
       >
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div className="fixed inset-0 z-10 overflow-y-auto">
           <form
             onSubmit={handleAddInfo}
-            class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+            className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
           >
-            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-              <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <input
                   className="block my-3 focus:outline-none border w-full p-2"
                   type="text"

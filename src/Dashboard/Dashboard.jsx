@@ -34,6 +34,12 @@ const Dashboard = () => {
           <DrawIcon /> ছাত্র - ছাত্রী যোগ করুন
         </Link>
         <Link
+          to="/admin/studentCabinet"
+          className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5"
+        >
+          <DrawIcon /> স্টুডেন্ট কেবিনেট
+        </Link>
+        <Link
           to="/admin/add-notice"
           className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5"
         >

@@ -37,7 +37,7 @@ const Rutine = () => {
         const pdfRutine = "https://" + data.url;
         if (data) {
           const info = { classes, pdfRutine };
-          fetch("https://school-server-liard.vercel.app/add-rutine", {
+          fetch("http://localhost:5000/add-rutine", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -55,7 +55,7 @@ const Rutine = () => {
   };
 
   const handleDeleteRutin = (_id) => {
-    const url = `https://school-server-liard.vercel.app/delete-rutin?_id=${_id}`;
+    const url = `http://localhost:5000/delete-rutin?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -68,7 +68,7 @@ const Rutine = () => {
   };
 
   useEffect(() => {
-    fetch("https://school-server-liard.vercel.app/rutin")
+    fetch("http://localhost:5000/rutin")
       .then((res) => res.json())
       .then((data) => setRoutines(data));
   }, [handleAddRutine, handleDeleteRutin]);
