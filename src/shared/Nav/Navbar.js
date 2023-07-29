@@ -10,11 +10,12 @@ const Navbar = () => {
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link to="/" className="inline-flex items-center">
-            <span className="ml-2 text-2xl font-bold tracking-wide   uppercase">
-              Logo
+            <span className="ml-2 text-2xl font-bold tracking-wide text-center">
+              <p>KH</p>
+              <p className="text-sm">School & Collage</p>
             </span>
           </Link>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
+          <ul className="flex items-center hidden gap-4 lg:flex">
             <li>
               <Link to="/about" className="font-medium tracking-wide">
                 আমাদের সম্পর্কে
@@ -50,6 +51,12 @@ const Navbar = () => {
                 যোগাযোগ
               </Link>
             </li>
+            <li>
+            {
+              localStorage.getItem('user') ? <Link to="/admin" className="font-medium tracking-wide">এডমিন</Link>  : ''
+              }
+            </li>
+            
           </ul>
           <div className="lg:hidden">
             <button

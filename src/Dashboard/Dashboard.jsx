@@ -9,6 +9,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import DescriptionIcon from "@mui/icons-material/Description";
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const Dashboard = () => {
   return (
@@ -71,6 +72,10 @@ const Dashboard = () => {
           <CollectionsIcon />
           গ্যালারি যোগ করুন
         </Link>
+        <Link to="/admin/smc" className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5" >
+            <GroupsIcon />
+            এসএমসি তথ্য
+          </Link>
       </div>
       <div className="w-full">
         <Outlet />

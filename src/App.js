@@ -5,7 +5,6 @@ import Students from "./Pages/Students";
 import Notice from "./Pages/Notice";
 import Main from "./Pages/Main";
 import Home from "./Pages/Home";
-
 import Login from "./Dashboard/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,7 +19,6 @@ import Ten from "./Dashboard/Class/Ten";
 import Addnotice from "./Dashboard/AddNotice";
 import AddNews from "./Dashboard/AddNews";
 import AddInformation from "./Dashboard/AddInformation";
-
 import Gallery from "./Pages/Gallery";
 import Contact from "./Pages/Contact";
 import More from "./Components/Notice/More";
@@ -32,11 +30,10 @@ import AddGallery from "./Dashboard/AddGallery";
 import Rutine from "./Dashboard/Rutine";
 import MoreRoute from "./MoreRoute";
 import AdmitCart from "./Dashboard/AdmitCart";
-
 import RequireAuth from "./Dashboard/RequireAuth";
-
 import Routine from "./Pages/Routine";
 import SingleTeacher from "./Pages/SingleTeacher";
+import SMC from "./Dashboard/SMC";
 
 function App() {
   return (
@@ -49,13 +46,35 @@ function App() {
           <Route path="/teacher/:id" element={<SingleTeacher />}></Route>
           {/* <Route path="/student" element={<Students />}></Route> */}
           <Route path="/notice" element={<Notice />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/admin" element={<RequireAuth> <Dashboard /></RequireAuth>}>
+            <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
+            <Route path="/admin/student" element={<Student />}></Route>
+            <Route path="/admin/add-notice" element={<Addnotice />}></Route>
+            <Route path="/admin/add-news" element={<AddNews />}></Route>
+            <Route path="/admin/add-info" element={<AddInformation />}></Route>
+            <Route path="/admin/student/class-six" element={<Six />}></Route>
+            <Route path="/admin/student/class-saven" element={<Saven />}></Route>
+            <Route path="/admin/student/class-eight" element={<Eight />}></Route>
+            <Route path="/admin/student/class-nine" element={<Nine />}></Route>
+            <Route path="/admin/student/class-ten" element={<Ten />}></Route>
+            <Route path="/admin/add-gallery" element={<AddGallery />}></Route>
+            <Route path="/admin/add-rutine" element={<Rutine />}></Route>
+            <Route path="/admin/admincart" element={<AdmitCart />}></Route>
+          </Route>
+          <Route path="/gallery" element={<Gallery />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/more" element={<More />}></Route>
+          <Route path="/principal" element={<Principal />}></Route>
+          <Route path="/welcome" element={<Welcome />}></Route>
+          <Route path="/latest" element={<Latest />}></Route>
           <Route path="/routine" element={<Routine />}></Route>
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/more/:id" element={<More />}></Route>
-          <Route path="/principal" element={<Principal />}></Route>
-          <Route path="/welcome" element={<Welcome />}></Route>
           <Route path="/latest/:id" element={<Latest />}></Route>
+          <Route path="/recent" element={<Recent />}></Route>
+          <Route path="/routine" element={<Routine />}></Route>
 
           {/* dashboard  */}
           <Route path="/login" element={<Login />}></Route>
@@ -75,6 +94,7 @@ function App() {
             <Route path="/admin/add-news" element={<AddNews />}></Route>
             <Route path="/admin/add-info" element={<AddInformation />}></Route>
             <Route path="/admin/student/class-six" element={<Six />}></Route>
+            <Route path="/admin/smc" element={<SMC />}></Route>
 
             <Route
               path="/admin/student/class-saven"
