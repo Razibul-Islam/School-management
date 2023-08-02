@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import CastForEducationIcon from "@mui/icons-material/CastForEducation";
@@ -10,8 +10,14 @@ import CollectionsIcon from "@mui/icons-material/Collections";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GroupsIcon from '@mui/icons-material/Groups';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 
 const Dashboard = () => {
+
+
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex">
       <div className="w-72 bg-teal-600 min-h-screen">
@@ -28,12 +34,15 @@ const Dashboard = () => {
         >
           <CastForEducationIcon /> শিক্ষক যোগ করুন
         </Link>
-        <Link
-          to="/admin/student"
-          className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5"
-        >
-          <DrawIcon /> ছাত্র - ছাত্রী যোগ করুন
-        </Link>
+        <button onClick={() => setOpen(!open)} className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5"><DrawIcon />  ছাত্র - ছাত্রী <ArrowForwardIosIcon className="scale-50" /></button>
+
+        <div className={`${open ? 'scale-100 bg-teal-700 ease-in duration-700' : 'scale-0 hidden'}`}>
+          <Link to="/admin/student" className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5" >  <PanoramaFishEyeIcon /> ছাত্র - ছাত্রী </Link>
+          <Link to="/admin/student/religion" className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5" >  <PanoramaFishEyeIcon />ধর্ম</Link>
+          <Link to="/admin/student/famaly-income" className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5" >  <PanoramaFishEyeIcon />পরিবারের আয়</Link>
+          <Link to="/admin/student/student-category" className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5" >  <PanoramaFishEyeIcon />শিক্ষার্থীর ক্যাটাগরি</Link>
+        </div>
+
         <Link
           to="/admin/add-notice"
           className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5"
@@ -73,9 +82,9 @@ const Dashboard = () => {
           গ্যালারি যোগ করুন
         </Link>
         <Link to="/admin/smc" className="w-full px-5 py-2 block hover:bg-teal-700 text-white flex gap-5" >
-            <GroupsIcon />
-            এসএমসি তথ্য
-          </Link>
+          <GroupsIcon />
+          এসএমসি তথ্য
+        </Link>
       </div>
       <div className="w-full">
         <Outlet />

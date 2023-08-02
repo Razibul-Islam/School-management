@@ -160,7 +160,7 @@ const Six = () => {
                             return (
                                 <tr>
                                     <td>{students.role}</td>
-                                    <td><img className='h-10 w-10 rounded-full' src={students.photo ? 'https://' + students.photo : 'https://t4.ftcdn.net/jpg/02/17/34/67/360_F_217346796_TSg5VcYjsFxZtIDK6Qdctg3yqAapG7Xa.jpg'} alt="" /></td>
+                                    <td><img className='h-6 w-6 rounded-full' src={students.photo ? 'https://' + students.photo : 'https://t4.ftcdn.net/jpg/02/17/34/67/360_F_217346796_TSg5VcYjsFxZtIDK6Qdctg3yqAapG7Xa.jpg'} alt="" /></td>
                                     <td>{students.name}</td>
                                     <td>{students.yourClass}</td>
                                     <td>{students.dipperment}</td>
@@ -169,9 +169,11 @@ const Six = () => {
                                     <td>{students.mother_name}</td>
                                     <td>{students.address}</td>
                                     <td>{students.date_of_birth}</td>
-                                    <td className='flex items-center gap-3'>
-                                        <button onClick={() => handleDeleteStudent(students._id)} className='text-red-500'><DeleteIcon></DeleteIcon></button>
+                                    <td >
+                                       <div className='flex items-center gap-3'>
+                                       <button onClick={() => handleDeleteStudent(students._id)} className='text-red-500'><DeleteIcon></DeleteIcon></button>
                                         <button onClick={() => handleEdit(students)} className='text-green-500'>{editIcon}</button>
+                                       </div>
                                     </td>
                                 </tr>
                             )
@@ -188,8 +190,8 @@ const Six = () => {
                 <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                 <div class="fixed inset-0 z-10 overflow-y-auto">
                     <form onSubmit={handleAddStudent} class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 grid grid-cols-2 gap-3">
+                        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-6xl">
+                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 grid grid-cols-3 gap-3">
                                 <input name='name' className='block my-3 focus:outline-none border w-full p-2' type="text" placeholder='নাম প্রবেশ করান' />
                                 <input name='role' className='block my-3 focus:outline-none border w-full p-2' type="text" placeholder='রোল নাম্বার প্রবেশ করান' />
                                 <select name='class' className='block my-3 focus:outline-none border w-full p-2'>

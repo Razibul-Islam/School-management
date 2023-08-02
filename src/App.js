@@ -34,6 +34,7 @@ import RequireAuth from "./Dashboard/RequireAuth";
 import Routine from "./Pages/Routine";
 import SingleTeacher from "./Pages/SingleTeacher";
 import SMC from "./Dashboard/SMC";
+import CounsilMember from "./Dashboard/CounsilMember";
 
 function App() {
   return (
@@ -95,6 +96,7 @@ function App() {
             <Route path="/admin/add-info" element={<AddInformation />}></Route>
             <Route path="/admin/student/class-six" element={<Six />}></Route>
             <Route path="/admin/smc" element={<SMC />}></Route>
+            <Route path="/admin/smc/counsil-member/:counsil_id" element={<CounsilMember/>}></Route>
 
             <Route
               path="/admin/student/class-saven"
