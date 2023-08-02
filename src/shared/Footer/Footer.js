@@ -3,6 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+
+
+  const handleLogOut= ()=>{
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
   return (
     <footer className="px-4 divide-y bg-teal-500 text-white">
       <div className="flex flex-col justify-between py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl space-y-8 lg:flex-row lg:space-y-0">
@@ -65,8 +72,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center text-white">
-        © 2023 NextSulation. All rights reserved.
+      <div className="py-6 text-sm text-center flex justify-center gap-3 text-white">
+        © 2023 NextSulation. All rights reserved. 
+        {localStorage.getItem('user')? <button onClick={handleLogOut} >LogOut</button> : <Link to='/login'>Admin</Link>}
       </div>
     </footer>
   );

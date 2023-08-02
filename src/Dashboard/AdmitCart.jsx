@@ -16,6 +16,7 @@ const AdmitCart = () => {
         <h1 className="text-xl text-center">
           কে.এইচ উচ্চ বিদ্যালয় & মহাবিদ্যালয়
         </h1>
+        <p className="text-xl text-center">বীরগঞ্জ, দিনাজপুর</p>
         <h1 className="text-center text-3xl mt-5 underline underline-offset-8">
           প্রবেশ পত্র
         </h1>
