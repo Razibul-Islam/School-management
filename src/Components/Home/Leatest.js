@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Leatest = () => {
   const [newses, setNewses] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/get-news";
+    const url = "https://school-server-razibul-islam.vercel.app/get-news";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNewses(data));

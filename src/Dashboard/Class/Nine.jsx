@@ -86,7 +86,7 @@ const Nine = () => {
   };
 
   const handleDeleteStudent = (_id) => {
-    const url = `http://localhost:5000/delete-student?_id=${_id}`;
+    const url = `https://school-server-razibul-islam.vercel.app/delete-student?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })

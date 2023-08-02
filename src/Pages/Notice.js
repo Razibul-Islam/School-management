@@ -5,7 +5,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const Notice = () => {
   const [notice, setNotice] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/get-notice";
+    const url = "https://school-server-razibul-islam.vercel.app/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));

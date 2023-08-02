@@ -6,7 +6,7 @@ const SingleStudent = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     console.log(id);
-    fetch(`http://localhost:5000/single-student?_id=${id}`)
+    fetch(`https://school-server-razibul-islam.vercel.app/single-student?_id=${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);

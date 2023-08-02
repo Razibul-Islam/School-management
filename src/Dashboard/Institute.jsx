@@ -687,7 +687,7 @@ const Institute = () => {
       instituteEmail,
       id,
     };
-    fetch("http://localhost:5000/edit-institute-information", {
+    fetch("https://school-server-razibul-islam.vercel.app/edit-institute-information", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),
@@ -700,7 +700,7 @@ const Institute = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/get-institute-info")
+    fetch("https://school-server-razibul-islam.vercel.app/get-institute-info")
       .then((res) => res.json())
       .then((data) => setInformation(data));
   }, []);

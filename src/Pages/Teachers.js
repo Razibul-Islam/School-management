@@ -5,7 +5,7 @@ const Teachers = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/get-teacher";
+    const url = "https://school-server-razibul-islam.vercel.app/get-teacher";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTeacherData(data));

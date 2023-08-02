@@ -5,7 +5,7 @@ import image2 from "../assets/image1.jpg";
 const Gallery = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/gallery")
+    fetch("https://school-server-razibul-islam.vercel.app/gallery")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
