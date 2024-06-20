@@ -13,7 +13,7 @@ const Addnotice = () => {
     const time = Date.now();
     const data = { title, prahgraph, time };
 
-    const url = `https://school-server-razibul-islam.vercel.app/add-notice`;
+    const url = `http://localhost:5000/add-notice`;
 
     fetch(url, {
       method: "Post",
@@ -32,19 +32,19 @@ const Addnotice = () => {
       });
   };
 
-  console.log(notice);
+
 
   const handleDeleteNotice = (_id) => {
-    const url = `https://school-server-razibul-islam.vercel.app/delete-notice?_id=${_id}`;
+    const url = `http://localhost:5000/delete-notice?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {});
   };
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-notice";
+    const url = "http://localhost:5000/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));
@@ -83,7 +83,7 @@ const Addnotice = () => {
 
       <div>
         {notice.map((notices) => {
-          // console.log()
+          
           return (
             <div className="p-3 bg-slate-100 my-2">
               <h3 className="my-2 text-teal-600">{notices.title}</h3>

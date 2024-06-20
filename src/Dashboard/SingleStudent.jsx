@@ -5,8 +5,8 @@ const SingleStudent = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
   useEffect(() => {
-    console.log(id);
-    fetch(`https://school-server-razibul-islam.vercel.app/single-student?_id=${id}`)
+    
+    fetch(`http://localhost:5000/single-student?_id=${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);
@@ -15,7 +15,7 @@ const SingleStudent = () => {
       <h1 className="text-center text-xl my-5">পূর্ণ তথ্য</h1>
       <div className="max-w-6xl mx-auto flex gap-10 mb-20 bg-slate-100 rounded-sm border-dashed border-teal-600 border-2">
         <div>
-          <img className="h-72" src={"https://" + data.photo} alt="" />
+          <img className="h-72" src={data.photo} alt="" />
         </div>
         <div className="space-y-2 py-3 grid grid-cols-4">
           <h3 className="text-xl text-teal-600">নাম : {data.name}</h3>

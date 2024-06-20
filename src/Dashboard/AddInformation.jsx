@@ -12,7 +12,7 @@ const AddInformation = () => {
     const totat_gpa_five = e.target.totat_gpa_five.value;
 
     const data = { founded, regularStudent, teacher, totat_gpa_five };
-    const url = `https://school-server-razibul-islam.vercel.app/school-information`;
+    const url = `http://localhost:5000/school-information`;
 
     fetch(url, {
       method: "PUT",
@@ -22,11 +22,11 @@ const AddInformation = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {});
   };
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/information")
+    fetch("http://localhost:5000/information")
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);

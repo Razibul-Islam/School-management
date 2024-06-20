@@ -8,12 +8,12 @@ const Routine = () => {
   const [pdfUrl, setPdfUrl] = useState("");
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/rutin")
+    fetch("http://localhost:5000/rutin")
       .then((res) => res.json())
       .then((data) => setRoutines(data));
   }, []);
 
-  // console.log(routines);
+  
   const openModal = (pdfUrl) => {
     setModalIsOpen(true);
     setPdfUrl(pdfUrl);

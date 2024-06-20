@@ -12,7 +12,7 @@ const Login = () => {
         const user_id = e.target.userId.value;
         const password = e.target.password.value;
 
-        if (user_id == '123456' && password == 'password') {
+        if (user_id === '123456' && password === 'password') {
             localStorage.setItem('user' , '6fjk36djkt4576fh4rf7tf34h47ft4rtgf643r43r6frfee3dr5def3dre53f36543frr53re623f')
             navigate('/admin')
             window.location.reload();

@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditNoteIcon from "@mui/icons-material/EditNote";
+// import EditNoteIcon from "@mui/icons-material/EditNote";
 
 const StudentCabinet = () => {
   const [modal, setModal] = useState("hidden");
@@ -34,7 +35,7 @@ const StudentCabinet = () => {
     const Ready = e.target.ready.value;
     const LastUpdate = e.target.lastUpdate.value;
     const info = { Name, EIIN, Member, Ready, LastUpdate };
-    fetch("https://school-server-razibul-islam.vercel.app/add-cabinet", {
+    fetch("http://localhost:5000/add-cabinet", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -52,7 +53,7 @@ const StudentCabinet = () => {
   };
 
   const handledeleteCabinet = (_id) => {
-    const url = `https://school-server-razibul-islam.vercel.app/delete-cabinet?_id=${_id}`;
+    const url = `http://localhost:5000/delete-cabinet?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -73,7 +74,7 @@ const StudentCabinet = () => {
     const id = e.target.id.value;
     const info = { Name, EIIN, Member, Ready, LastUpdate, id };
 
-    const url = `https://school-server-razibul-islam.vercel.app/update-cabinet`;
+    const url = `http://localhost:5000/update-cabinet`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -97,7 +98,7 @@ const StudentCabinet = () => {
   };
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/get-cabinet")
+    fetch("http://localhost:5000/get-cabinet")
       .then((res) => res.json())
       .then((data) => setCabinet(data));
   }, [handleCabinet, handledeleteCabinet, handleEditCabinet]);

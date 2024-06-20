@@ -8,7 +8,7 @@ const FamilyIncome = () => {
   const [fiveLakhPlus, setFiveLakhPlus] = useState([]);
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/get-allStudent")
+    fetch("http://localhost:5000/get-allStudent")
       .then((res) => res.json())
       .then((data) => {
         let thirtyThousand = data.filter(

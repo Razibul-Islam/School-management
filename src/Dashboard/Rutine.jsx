@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import DownloadIcon from "@mui/icons-material/Download";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -34,10 +35,10 @@ const Rutine = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        const pdfRutine = "https://" + data.url;
+        const pdfRutine = data.url;
         if (data) {
           const info = { classes, pdfRutine };
-          fetch("https://school-server-razibul-islam.vercel.app/add-rutine", {
+          fetch("http://localhost:5000/add-rutine", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -55,7 +56,7 @@ const Rutine = () => {
   };
 
   const handleDeleteRutin = (_id) => {
-    const url = `https://school-server-razibul-islam.vercel.app/delete-rutin?_id=${_id}`;
+    const url = `http://localhost:5000/delete-rutin?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -68,7 +69,7 @@ const Rutine = () => {
   };
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/rutin")
+    fetch("http://localhost:5000/rutin")
       .then((res) => res.json())
       .then((data) => setRoutines(data));
   }, [handleAddRutine, handleDeleteRutin]);
@@ -95,6 +96,7 @@ const Rutine = () => {
                 <a
                   href={routine.pdfRutine}
                   target="_blank"
+                  rel="noreferrer"
                   download={true}
                   className=""
                 >

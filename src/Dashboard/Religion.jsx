@@ -5,9 +5,9 @@ const Religion = () => {
   const [hindu, setHindu] = useState([]);
   const [christians, setChristians] = useState([]);
   const [other, setOther] = useState([]);
-  // console.log(muslim);
+  
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/get-allStudent")
+    fetch("http://localhost:5000/get-allStudent")
       .then((res) => res.json())
       .then((data) => {
         let muslim = data.filter((religion) => religion.religion === "muslim");

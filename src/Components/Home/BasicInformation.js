@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const BasicInformation = () => {
   const [info, setInfo] = useState({});
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/information")
+    fetch("http://localhost:5000/information")
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);
@@ -15,19 +15,23 @@ const BasicInformation = () => {
       <div className="my-5 grid grid-cols-1 px-5 lg:px-0 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div className="bg-gradient-to-tr bg-teal-500 to-green-300 p-5 text-white text-center rounded shadow">
           <h5>প্রতিষ্ঠিত</h5>
-          <h5 className="text-2xl">{info.founded}</h5>
+          <h5 className="text-2xl">{info?.founded ? info?.founded : "0"}</h5>
         </div>
         <div className="bg-gradient-to-tr bg-teal-500 to-green-300 p-5 text-white text-center rounded shadow">
           <h5>নিয়িমিত ছাত্র</h5>
-          <h5 className="text-2xl">{info.regularStudent}</h5>
+          <h5 className="text-2xl">
+            {info?.regularStudent ? info?.regularStudent : "0"}
+          </h5>
         </div>
         <div className="bg-gradient-to-tr bg-teal-500 to-green-300 p-5 text-white text-center rounded shadow">
           <h5>শিক্ষক</h5>
-          <h5 className="text-2xl">{info.teacher}</h5>
+          <h5 className="text-2xl">{info?.teacher ? info?.teacher : "0"}</h5>
         </div>
         <div className="bg-gradient-to-tr bg-teal-500 to-green-300 p-5 text-white text-center rounded shadow">
           <h5>টোটাল জিপিএ ৫ </h5>
-          <h5 className="text-2xl">{info.totat_gpa_five}</h5>
+          <h5 className="text-2xl">
+            {info?.totat_gpa_five ? info?.totat_gpa_five : "0"}
+          </h5>
         </div>
       </div>
     </div>

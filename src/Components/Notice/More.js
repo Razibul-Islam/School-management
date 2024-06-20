@@ -5,9 +5,8 @@ const More = ({ path }) => {
   const { id } = useParams();
   const [data, setData] = useState({});
   useEffect(() => {
-    console.log(id);
     fetch(
-      `https://school-server-razibul-islam.vercel.app/single-notice?_id=${id}`
+      `http://localhost:5000/single-notice?_id=${id}`
     )
       .then((res) => res.json())
       .then((data) => setData(data));

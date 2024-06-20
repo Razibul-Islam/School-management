@@ -14,7 +14,7 @@ const Home = () => {
       <Welcome />
       <BasicInformation />
       <Latest />
-      {/* <Recent /> */}
+      <Recent />
     </div>
   );
 };

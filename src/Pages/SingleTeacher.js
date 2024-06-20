@@ -5,18 +5,16 @@ const SingleTeacher = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
   useEffect(() => {
-    console.log(id);
-    fetch(`https://school-server-razibul-islam.vercel.app/single-teacher?_id=${id}`)
+    
+    fetch(`http://localhost:5000/single-teacher?_id=${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);
 
-  console.log(data);
-
   return (
     <div className="max-w-6xl mx-auto flex gap-10 my-20 bg-slate-100 rounded-sm border-dashed border-teal-600 border-2">
       <div>
-        <img className="h-72" src={"https://" + data.teacherImg} alt="" />
+        <img className="h-72" src={data.teacherImg} alt="" />
       </div>
       <div className="space-y-2 py-3">
         <h3 className="text-xl text-teal-600">নাম : {data.name}</h3>

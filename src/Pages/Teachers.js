@@ -5,12 +5,12 @@ const Teachers = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-teacher";
+    const url = "http://localhost:5000/get-teacher";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTeacherData(data));
   }, []);
-  // console.log(teacherData);
+  
   return (
     <div className="max-w-6xl mx-auto my-10">
       <h1 className="text-center text-xl mb-5">আমাদের শিক্ষক সমূহ</h1>
@@ -22,7 +22,7 @@ const Teachers = () => {
           >
             <img
               className="h-60 w-full object-cover"
-              src={"https://" + teacher.teacherImg}
+              src={teacher.teacherImg}
               alt=""
             />
             <div className="text-center my-4">

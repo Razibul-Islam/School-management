@@ -19,12 +19,11 @@ const Banner = () => {
   // const [getId, setGetId] = useState(null);
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-notice";
+    const url = "http://localhost:5000/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));
   }, []);
-  // console.log(getId);
   return (
     <div className="flex flex-wrap lg:flex-nowrap justify-between items-start mt-10 ">
       <div className="lg:w-2/3 w-full">
@@ -81,7 +80,7 @@ const Banner = () => {
         </Swiper>
       </div>
       <div className="ml-5 mt-5 lg:mt-0 flex flex-col w-full">
-        {notice.slice(0, 3).map((singleNotice, i) => (
+        {notice?.slice(0, 3).map((singleNotice, i) => (
           <div key={i} className="p-2 bg-slate-100 my-2">
             <p className="my-2 text-teal-600">{singleNotice.title}</p>
             <p>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
@@ -6,31 +7,73 @@ const AddNews = () => {
   const [modal, setModal] = useState("hidden");
   const [news, setnews] = useState([]);
 
+  const apiKey = "baca7cebf7d1365bf97c10bb391342f9";
+
+  // const handleAddTeacher = (e) => {
+  //   e.preventDefault();
+  //   const title = e.target.title.value;
+  //   const descripetion = e.target.descripetion.value;
+  //   const img = e.target.img.files[0];
+  //   const time = Date.now();
+
+  //   var formData = new FormData();
+  //   formData.append("file", img);
+
+  //   fetch("https://upload.rainbosoft.com/", {
+  //     method: "POST",
+  //     body: formData,
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const imgUrl = data.url;
+  //       const info = { title, descripetion, imgUrl, time };
+  //       if (data.url) {
+  //         const url = `http://localhost:5000/add-news`;
+
+  //         fetch(url, {
+  //           method: "POST",
+  //           headers: {
+  //             "content-type": "application/json",
+  //           },
+  //           body: JSON.stringify(info),
+  //         })
+  //           .then((res) => res.json())
+  //           .then((data) => {
+  //             if (data) {
+  //               toast.success("সম্পূর্ণ হয়েছে");
+  //               e.target.reset();
+  //               setModal("hidden");
+  //             }
+  //           });
+  //       }
+  //     });
+  // };
+
   const handleAddTeacher = (e) => {
     e.preventDefault();
     const title = e.target.title.value;
-    const descripetion = e.target.descripetion.value;
+    const description = e.target.descripetion.value;
     const img = e.target.img.files[0];
     const time = Date.now();
 
     var formData = new FormData();
-    formData.append("file", img);
+    formData.append("image", img);
 
-    fetch("https://upload.rainbosoft.com/", {
+    fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        const imgUrl = data.url;
-        const info = { title, descripetion, imgUrl, time };
-        if (data.url) {
-          const url = `https://school-server-razibul-islam.vercel.app/add-news`;
+        const imgUrl = data.data.url;
+        const info = { title, description, imgUrl, time };
+        if (imgUrl) {
+          const url = `http://localhost:5000/add-news`;
 
           fetch(url, {
             method: "POST",
             headers: {
-              "content-type": "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(info),
           })
@@ -47,7 +90,7 @@ const AddNews = () => {
   };
 
   const handleDelete = (_id) => {
-    const url = `https://school-server-razibul-islam.vercel.app/delete-news?_id=${_id}`;
+    const url = `http://localhost:5000/delete-news?_id=${_id}`;
 
     fetch(url, {
       method: "DELETE",
@@ -57,16 +100,16 @@ const AddNews = () => {
         toast.success("মুছে ফেলা হয়েছে");
       });
 
-    console.log(url);
+    
   };
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-news";
+    const url = "http://localhost:5000/get-news";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setnews(data));
   }, [handleDelete, handleAddTeacher]);
-
+  
   return (
     <div className="px-5 relative">
       <h2 className="text-xl text-center my-5">সর্বশেষ খবর</h2>
@@ -79,11 +122,14 @@ const AddNews = () => {
       <div className="my-5 p-5">
         {news.map((newses) => {
           return (
-            <div className="flex items-start gap-5 my-5 bg-slate-100 rounded overflow-hidden relative right-5 p-5">
-              <img className="h-40" src={"http://" + newses.imgUrl} alt="" />
+            <div
+              key={newses._id}
+              className="flex items-start gap-5 my-5 bg-slate-100 rounded overflow-hidden relative right-5 p-5"
+            >
+              <img className="h-40" src={newses.imgUrl} alt="" />
               <div>
                 <p>{newses.title}</p>
-                <p>{newses.descripetion}</p>
+                <p>{newses.description}</p>
                 <div>
                   <button
                     onClick={() => handleDelete(newses._id)}

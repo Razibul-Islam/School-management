@@ -10,11 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./Dashboard/Dashboard";
 import AddTeacher from "./Dashboard/AddTeacher";
 import Student from "./Dashboard/Student";
-import Six from "./Dashboard/Class/Six";
-import Saven from "./Dashboard/Class/Saven";
-import Eight from "./Dashboard/Class/Eight";
-import Nine from "./Dashboard/Class/Nine";
-import Ten from "./Dashboard/Class/Ten";
 import Addnotice from "./Dashboard/AddNotice";
 import AddNews from "./Dashboard/AddNews";
 import AddInformation from "./Dashboard/AddInformation";
@@ -27,7 +22,7 @@ import Latest from "./Pages/Latest";
 import AddGallery from "./Dashboard/AddGallery";
 import Rutine from "./Dashboard/Rutine";
 import AdmitCart from "./Dashboard/AdmitCart";
-import RequireAuth from "./Dashboard/RequireAuth";
+// import RequireAuth from "./Dashboard/RequireAuth";
 import Routine from "./Pages/Routine";
 import SingleTeacher from "./Pages/SingleTeacher";
 import Result from "./Pages/Result";
@@ -70,19 +65,18 @@ function App() {
           <Route
             path="/admin"
             element={
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
+              // <RequireAuth>
+              <Dashboard />
+              // </RequireAuth>
             }
           >
-            {/* <Route path="/admin" element={<Dashboard />}> */}
             <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
             <Route path="/admin/student" element={<Student />}></Route>
             <Route path="/admin/add-notice" element={<Addnotice />}></Route>
             <Route path="/admin/add-news" element={<AddNews />}></Route>
             <Route path="/admin/add-info" element={<AddInformation />}></Route>
             <Route path="/admin/institute" element={<Institute />}></Route>
-            
+
             <Route
               path="/admin/student/:id"
               element={<SingleStudent />}
@@ -91,7 +85,6 @@ function App() {
               path="/admin/studentCabinet"
               element={<StudentCabinet />}
             ></Route>
-            <Route path="/admin/student/class-six" element={<Six />}></Route>
             <Route path="/admin/smc" element={<SMC />}></Route>
 
             <Route
@@ -111,28 +104,6 @@ function App() {
               path="/admin/student/studentCategory"
               element={<StudentCategory />}
             ></Route>
-
-            <Route
-              path="/admin/student/class-saven"
-              element={<Saven />}
-            ></Route>
-
-            <Route
-              path="/admin/student/class-eight"
-              element={<Eight />}
-            ></Route>
-
-            <Route
-              path="/admin/student/class-saven"
-              element={<Saven />}
-            ></Route>
-            <Route
-              path="/admin/student/class-eight"
-              element={<Eight />}
-            ></Route>
-
-            <Route path="/admin/student/class-nine" element={<Nine />}></Route>
-            <Route path="/admin/student/class-ten" element={<Ten />}></Route>
             <Route path="/admin/add-gallery" element={<AddGallery />}></Route>
             <Route path="/admin/add-rutine" element={<Rutine />}></Route>
             <Route path="/admin/admincart" element={<AdmitCart />}></Route>

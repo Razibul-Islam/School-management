@@ -7,7 +7,7 @@ const SMC = () => {
   const [CMSData, setCMSData] = useState([]);
 
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-allStudent";
+    const url = "http://localhost:5000/get-allStudent";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCMSData(data));
@@ -26,7 +26,7 @@ const SMC = () => {
             <th>ইমেইল এড্রেস</th>
           </thead>
           <tbody>
-            {CMSData.map((cms, i) => (
+            {CMSData?.map((cms, i) => (
               <tr key={i}>
                 <td>
                   <img

@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 const StudentCategory = () => {
   const [SmallEthnicGroup, setSmallEthnicGroup] = useState([]);
   const [Landless, setLandless] = useState([]);
+  const [Local, setLocal] = useState([]);
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/get-allStudent")
+    fetch("http://localhost:5000/get-allStudent")
       .then((res) => res.json())
       .then((data) => {
         let thirtyThousand = data.filter(
@@ -17,6 +18,9 @@ const StudentCategory = () => {
           (income) => income.studentCategory === "Landless(Parents)"
         );
         setLandless(oneLakh);
+
+        let local = data.filter((income) => income.studentCategory === "local");
+        setLocal(local);
       });
   }, []);
 
@@ -33,6 +37,18 @@ const StudentCategory = () => {
             <th>পরীক্ষার্থীর সংখ্যা (ছাত্রী)৬ষ্ঠ-১০ম</th>
           </thead>
           <tbody>
+            <tr>
+              <td>স্থানীয়</td>
+              <td>
+                {Local.filter((category) => category.gender === "male").length}
+              </td>
+              <td>
+                {
+                  Local.filter((category) => category.gender === "female")
+                    .length
+                }
+              </td>
+            </tr>
             <tr>
               <td>ক্ষুদ্র নৃ-গোষ্ঠী</td>
               <td>

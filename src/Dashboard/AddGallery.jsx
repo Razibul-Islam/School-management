@@ -1,69 +1,104 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import DeleteIcon from "@mui/icons-material/Delete";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 const AddGallery = () => {
   const [modal, setModal] = useState("hidden");
-  const [teacher, setTeacher] = useState([]);
+  const [teacher, setTeachers] = useState([]);
+  const apiKey = "baca7cebf7d1365bf97c10bb391342f9";
 
-  const handleAddGallery = (e) => {
+  const handleAddGallery = async (e) => {
     e.preventDefault();
 
     const caption = e.target.caption.value;
     const img = e.target.img.files[0];
 
-    var formData = new FormData();
-    formData.append("file", img);
+    if (!img) {
+      toast.error("Please upload an image.");
+      return;
+    }
 
-    fetch("https://upload.rainbosoft.com/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const teacherImg = data.url;
-        if (data) {
-          const data = { caption, teacherImg };
-          const url = `https://school-server-razibul-islam.vercel.app/add-gallery`;
-          fetch(url, {
+    const formData = new FormData();
+    formData.append("image", img);
+
+    try {
+      const response = await fetch(
+        `https://api.imgbb.com/1/upload?key=${apiKey}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data && data.data && data.data.url) {
+        const teacherImg = data.data.url;
+        const galleryData = { caption, teacherImg };
+
+        const galleryResponse = await fetch(
+          "http://localhost:5000/add-gallery",
+          {
             method: "POST",
             headers: {
-              "content-type": "application/json",
+              "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.acknowledged) {
-                toast.success("যোগ সম্পূর্ণ হয়েছে");
-                setModal("hidden");
-                e.target.reset();
-                console.log(data);
-              }
-            });
+            body: JSON.stringify(galleryData),
+          }
+        );
+
+        const galleryResult = await galleryResponse.json();
+
+        if (galleryResult.acknowledged) {
+          toast.success("যোগ সম্পূর্ণ হয়েছে");
+          setModal("hidden");
+          e.target.reset();
+          fetchGallery(); // Refresh the gallery
+        } else {
+          toast.error("Failed to add to gallery.");
         }
-      });
+      } else {
+        toast.error("Image upload failed.");
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
-  const handledeleteTeacher = (_id) => {
-    const url = `https://school-server-razibul-islam.vercel.app/gallery?_id=${_id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          toast.success("মুছে ফেলা হয়েছে");
-        }
+  const handleDeleteTeacher = async (_id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/gallery?_id=${_id}`, {
+        method: "DELETE",
       });
+      const data = await response.json();
+
+      if (data.acknowledged) {
+        toast.success("মুছে ফেলা হয়েছে");
+        fetchGallery(); // Refresh the gallery
+      } else {
+        toast.error("Deletion failed.");
+      }
+    } catch (error) {
+      console.error("Error deleting gallery item:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
+  };
+
+  const fetchGallery = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/gallery");
+      const data = await response.json();
+      setTeachers(data);
+    } catch (error) {
+      console.error("Error fetching gallery:", error);
+    }
   };
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/gallery")
-      .then((res) => res.json())
-      .then((data) => setTeacher(data));
-  }, [handleAddGallery, handledeleteTeacher]);
+    fetchGallery();
+  }, []);
 
   return (
     <div className="p-5 w-full relative">
@@ -77,17 +112,16 @@ const AddGallery = () => {
       <div className="my-5 grid grid-cols-4 gap-10">
         {teacher.map((teachers) => {
           return (
-            <div className="bg-slate-100 rounded-sm overflow-hidden relative ">
-              <img
-                className="h-40"
-                src={"https://" + teachers.teacherImg}
-                alt=""
-              />
+            <div
+              key={teachers._id}
+              className="bg-slate-100 rounded-sm overflow-hidden relative "
+            >
+              <img className="h-40 mx-auto" src={teachers.teacherImg} alt="" />
               <div className="text-center my-4">
                 <h4 className="my-2">{teachers.caption}</h4>
               </div>
               <button
-                onClick={() => handledeleteTeacher(teachers._id)}
+                onClick={() => handleDeleteTeacher(teachers._id)}
                 className="bg-white  rounded-3xl absolute top-2 right-2 text-red-500"
               >
                 <DeleteIcon className="p-1" />

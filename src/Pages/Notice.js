@@ -5,12 +5,11 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const Notice = () => {
   const [notice, setNotice] = useState([]);
   useEffect(() => {
-    const url = "https://school-server-razibul-islam.vercel.app/get-notice";
+    const url = "http://localhost:5000/get-notice";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNotice(data));
   }, []);
-  // console.log(notice);
   return (
     <div className="max-w-6xl mx-auto my-10 px-5 lg:px-0">
       <h1 className="text-center text-xl mb-10">সকল বিজ্ঞপ্তি</h1>

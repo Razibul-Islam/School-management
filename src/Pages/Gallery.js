@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import image1 from "../assets/news1.jpeg";
-import image2 from "../assets/image1.jpg";
+// import image1 from "../assets/news1.jpeg";
+// import image2 from "../assets/image1.jpg";
 
 const Gallery = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/gallery")
+    fetch("http://localhost:5000/gallery")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -20,7 +20,7 @@ const Gallery = () => {
           >
             <img
               className="h-40 w-full object-cover"
-              src={"https://" + teacher.teacherImg}
+              src={teacher.teacherImg}
               alt=""
             />
             <div className="text-center my-4">

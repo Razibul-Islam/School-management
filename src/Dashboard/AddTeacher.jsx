@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -6,8 +7,9 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 const AddTeacher = () => {
   const [modal, setModal] = useState("hidden");
   const [teacher, setTeacher] = useState([]);
+  const apiKey = "baca7cebf7d1365bf97c10bb391342f9";
 
-  const handleAddTeacher = (e) => {
+  const handleAddTeacher = async (e) => {
     e.preventDefault();
 
     const name = e.target.name.value;
@@ -20,63 +22,92 @@ const AddTeacher = () => {
     const father_name = e.target.father_name.value;
 
     var formData = new FormData();
-    formData.append("file", img);
+    formData.append("image", img);
 
-    fetch("https://upload.rainbosoft.com/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const teacherImg = data.url;
-        if (data) {
-          const data = {
-            name,
-            post,
-            phone,
-            teacherImg,
-            address,
-            email,
-            mother_name,
-          };
-          const url = `https://school-server-razibul-islam.vercel.app/add-teacher`;
-          fetch(url, {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(data),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.acknowledged) {
-                toast.success("যোগ সম্পূর্ণ হয়েছে");
-                setModal("hidden");
-                e.target.reset();
-              }
-            });
+    try {
+      // Upload image to imgbb
+      const response = await fetch(
+        `https://api.imgbb.com/1/upload?key=${apiKey}`,
+        {
+          method: "POST",
+          body: formData,
         }
-      });
+      );
+
+      const imageData = await response.json();
+
+      if (imageData.success) {
+        const teacherImg = imageData.data.url;
+
+        const teacherData = {
+          name,
+          post,
+          phone,
+          teacherImg,
+          address,
+          email,
+          mother_name,
+          father_name,
+        };
+
+        // Send teacher data to backend
+        const res = await fetch("http://localhost:5000/add-teacher", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(teacherData),
+        });
+
+        const result = await res.json();
+
+        if (result.acknowledged) {
+          toast.success("যোগ সম্পূর্ণ হয়েছে");
+          setModal("hidden");
+          e.target.reset();
+          fetchTeachers();
+        }
+      } else {
+        console.error("Image upload failed:", imageData);
+      }
+    } catch (error) {
+      console.error("Error adding teacher:", error);
+    }
   };
 
-  const handledeleteTeacher = (_id) => {
-    const url = `https://school-server-razibul-islam.vercel.app/delete-teacher?_id=${_id}`;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          toast.success("মুছে ফেলা হয়েছে");
+  const handledeleteTeacher = async (_id) => {
+    try {
+      const res = await fetch(
+        `http://localhost:5000/delete-teacher?_id=${_id}`,
+        {
+          method: "DELETE",
         }
-      });
+      );
+
+      const result = await res.json();
+
+      if (result) {
+        toast.success("মুছে ফেলা হয়েছে");
+        fetchTeachers(); // Refresh teacher list
+      }
+    } catch (error) {
+      console.error("Error deleting teacher:", error);
+    }
+  };
+
+  const fetchTeachers = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/get-teacher");
+      const data = await res.json();
+      setTeacher(data);
+    } catch (error) {
+      console.error("Error fetching teachers:", error);
+    }
   };
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/get-teacher")
-      .then((res) => res.json())
-      .then((data) => setTeacher(data));
-  }, [handleAddTeacher, handledeleteTeacher]);
+    fetchTeachers();
+  }, []);
 
   return (
     <div className="p-5 w-full relative">
@@ -90,12 +121,11 @@ const AddTeacher = () => {
       <div className="my-5 grid grid-cols-4 gap-10">
         {teacher.map((teachers) => {
           return (
-            <div className="bg-slate-100 rounded-sm overflow-hidden relative ">
-              <img
-                className="h-40"
-                src={"https://" + teachers.teacherImg}
-                alt=""
-              />
+            <div
+              className="bg-slate-100 rounded-sm overflow-hidden relative "
+              key={teachers._id}
+            >
+              <img className="h-40 mx-auto" src={teachers.teacherImg} alt="" />
               <div className="text-center my-4">
                 <h4>{teachers.post}</h4>
                 <h4>{teachers.name}</h4>

@@ -42,8 +42,8 @@ const FaildStidennt = () => {
       failedFemaleStudent,
       year,
     };
-    // console.log(info);
-    fetch("https://school-server-razibul-islam.vercel.app/post-fail-student", {
+    
+    fetch("http://localhost:5000/post-fail-student", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),
@@ -59,7 +59,7 @@ const FaildStidennt = () => {
   };
 
   const handleDeleteFailedStudent = (id) => {
-    fetch(`https://school-server-razibul-islam.vercel.app/delete-fail-student?_id=${id}`, {
+    fetch(`http://localhost:5000/delete-fail-student?_id=${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -88,7 +88,7 @@ const FaildStidennt = () => {
       failedMaleStudent,
       year,
     };
-    fetch(`https://school-server-razibul-islam.vercel.app/edit-fail-student?_id=${id}`, {
+    fetch(`http://localhost:5000/edit-fail-student?_id=${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),
@@ -104,13 +104,13 @@ const FaildStidennt = () => {
   };
 
   const handleEdit = (student) => {
-    console.log(student);
+    
     setModified(student);
     setModalTwo("");
   };
 
   useEffect(() => {
-    fetch("https://school-server-razibul-islam.vercel.app/get-fail-student")
+    fetch("http://localhost:5000/get-fail-student")
       .then((res) => res.json())
       .then((data) => setFailedStudent(data));
   }, [handleAddFailedStudent, handleDeleteFailedStudent, handleEditSubmit]);
