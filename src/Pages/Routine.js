@@ -13,7 +13,6 @@ const Routine = () => {
       .then((data) => setRoutines(data));
   }, []);
 
-  
   const openModal = (pdfUrl) => {
     setModalIsOpen(true);
     setPdfUrl(pdfUrl);

@@ -3,22 +3,22 @@ import React, { useEffect, useState } from "react";
 import DownloadIcon from "@mui/icons-material/Download";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
-import { CloseSharp } from "@mui/icons-material";
+// import { CloseSharp } from "@mui/icons-material";
 
 const Rutine = () => {
   const [routines, setRoutines] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [pdfUrl, setPdfUrl] = useState("");
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [pdfUrl, setPdfUrl] = useState("");
 
-  const openModal = (pdfUrl) => {
-    setModalIsOpen(true);
-    setPdfUrl(pdfUrl);
-  };
+  // const openModal = (pdfUrl) => {
+  //   setModalIsOpen(true);
+  //   setPdfUrl(pdfUrl);
+  // };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setPdfUrl("");
-  };
+  // const closeModal = () => {
+  //   setModalIsOpen(false);
+  //   setPdfUrl("");
+  // };
 
   const handleAddRutine = (e) => {
     e.preventDefault();
@@ -28,15 +28,16 @@ const Rutine = () => {
 
     var formData = new FormData();
     formData.append("file", rutin);
+    formData.append("token", "fd1a61fdf98593e4367564ad1485600d");
 
-    fetch("https://upload.rainbosoft.com/", {
+    fetch("https://api.upfiles.com/upload", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         const pdfRutine = data.url;
-        if (data) {
+        if (data.status === "success") {
           const info = { classes, pdfRutine };
           fetch("http://localhost:5000/add-rutine", {
             method: "POST",
@@ -49,9 +50,15 @@ const Rutine = () => {
             .then((data) => {
               if (data) {
                 toast.success("সম্পূর্ণ হয়েছে");
+                setRoutines((prevRoutines) => [...prevRoutines, info]);
               }
             });
+        } else {
+          toast.error("ফাইল আপলোড ব্যর্থ হয়েছে");
         }
+      })
+      .catch(() => {
+        toast.error("ফাইল আপলোড ব্যর্থ হয়েছে");
       });
   };
 
@@ -64,6 +71,9 @@ const Rutine = () => {
       .then((data) => {
         if (data) {
           toast.success("মুছে ফেলা হয়েছে");
+          setRoutines((prevRoutines) =>
+            prevRoutines.filter((routine) => routine._id !== _id)
+          );
         }
       });
   };
@@ -72,11 +82,11 @@ const Rutine = () => {
     fetch("http://localhost:5000/rutin")
       .then((res) => res.json())
       .then((data) => setRoutines(data));
-  }, [handleAddRutine, handleDeleteRutin]);
+  }, []);
 
   return (
     <div className="p-5">
-      <h1 className="text-center text-xl  my-5">রুটিন যোগ করুণ</h1>
+      <h1 className="text-center text-xl my-5">রুটিন যোগ করুণ</h1>
 
       <div className="flex">
         <div className="w-2/3">
@@ -84,11 +94,11 @@ const Rutine = () => {
             {routines.map((routine, i) => (
               <div
                 key={i}
-                className="bg-gradient-to-bl relative  py-5 from-teal-500 to-green-300 text-center text-xl font-medium text-white rounded flex flex-col items-center"
+                className="bg-gradient-to-bl relative py-5 from-teal-500 to-green-300 text-center text-xl font-medium text-white rounded flex flex-col items-center"
               >
                 <button
                   onClick={() => handleDeleteRutin(routine._id)}
-                  className="absolute to-2 right-2 bg-white h-8 w-8  text-teal-500 rounded-full"
+                  className="absolute top-2 right-2 bg-white h-8 w-8 text-teal-500 rounded-full"
                 >
                   <DeleteIcon />
                 </button>
@@ -96,18 +106,18 @@ const Rutine = () => {
                 <a
                   href={routine.pdfRutine}
                   target="_blank"
+                  download
                   rel="noreferrer"
-                  download={true}
                   className=""
                 >
                   <DownloadIcon />
                 </a>
-                <p
+                {/* <p
                   className="cursor-pointer"
                   onClick={() => openModal(routine.pdfRutine)}
                 >
                   রুটিন দেখুন
-                </p>
+                </p> */}
               </div>
             ))}
           </div>
@@ -129,7 +139,7 @@ const Rutine = () => {
           </select>
           <input type="file" id="file" name="rutin" className="hidden" />
           <label htmlFor="file">
-            <p className="p-5 bg-slate-200  text-slate-500 text-xl font-bold text-center w-full">
+            <p className="p-5 bg-slate-200 text-slate-500 text-xl font-bold text-center w-full">
               Select PDF or Image File
             </p>
           </label>
@@ -138,28 +148,24 @@ const Rutine = () => {
           </button>
         </form>
       </div>
-      {modalIsOpen && (
+      {/* {modalIsOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="w-[80%] h-[90%] bg-white rounded-lg shadow-lg p-5">
             <p className="bg-white p-2 absolute top-[35px] lg:right-36 right-10 rounded-full">
               <CloseSharp onClick={closeModal} />
             </p>
             <div className="h-full overflow-hidden">
-              <object
-                data={pdfUrl}
-                type="application/pdf"
-                className="w-full h-full"
-              >
+              <iframe src={pdfUrl} title="PDF Viewer" className="w-full h-full">
                 <p>
                   It appears you don't have a PDF plugin for this browser. No
-                  worries, you can
+                  worries, you can{" "}
                   <a href={pdfUrl}>click here to download the PDF</a>.
                 </p>
-              </object>
+              </iframe>
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
