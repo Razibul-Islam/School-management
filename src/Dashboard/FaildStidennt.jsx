@@ -43,7 +43,7 @@ const FaildStidennt = () => {
       year,
     };
     
-    fetch("http://localhost:5000/post-fail-student", {
+    fetch("https://school-server-umber.vercel.app/post-fail-student", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),
@@ -59,7 +59,7 @@ const FaildStidennt = () => {
   };
 
   const handleDeleteFailedStudent = (id) => {
-    fetch(`http://localhost:5000/delete-fail-student?_id=${id}`, {
+    fetch(`https://school-server-umber.vercel.app/delete-fail-student?_id=${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -88,7 +88,7 @@ const FaildStidennt = () => {
       failedMaleStudent,
       year,
     };
-    fetch(`http://localhost:5000/edit-fail-student?_id=${id}`, {
+    fetch(`https://school-server-umber.vercel.app/edit-fail-student?_id=${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),
@@ -110,7 +110,7 @@ const FaildStidennt = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/get-fail-student")
+    fetch("https://school-server-umber.vercel.app/get-fail-student")
       .then((res) => res.json())
       .then((data) => setFailedStudent(data));
   }, [handleAddFailedStudent, handleDeleteFailedStudent, handleEditSubmit]);

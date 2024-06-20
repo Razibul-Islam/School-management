@@ -6,7 +6,7 @@ const StudentCategory = () => {
   const [Local, setLocal] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/get-allStudent")
+    fetch("https://school-server-umber.vercel.app/get-allStudent")
       .then((res) => res.json())
       .then((data) => {
         let thirtyThousand = data.filter(

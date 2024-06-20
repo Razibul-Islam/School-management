@@ -6,7 +6,7 @@ const Latest = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/get-news-single-view?_id=${id}`)
+    fetch(`https://school-server-umber.vercel.app/get-news-single-view?_id=${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);

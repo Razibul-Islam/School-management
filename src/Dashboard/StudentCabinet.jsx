@@ -35,7 +35,7 @@ const StudentCabinet = () => {
     const Ready = e.target.ready.value;
     const LastUpdate = e.target.lastUpdate.value;
     const info = { Name, EIIN, Member, Ready, LastUpdate };
-    fetch("http://localhost:5000/add-cabinet", {
+    fetch("https://school-server-umber.vercel.app/add-cabinet", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,7 +53,7 @@ const StudentCabinet = () => {
   };
 
   const handledeleteCabinet = (_id) => {
-    const url = `http://localhost:5000/delete-cabinet?_id=${_id}`;
+    const url = `https://school-server-umber.vercel.app/delete-cabinet?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -74,7 +74,7 @@ const StudentCabinet = () => {
     const id = e.target.id.value;
     const info = { Name, EIIN, Member, Ready, LastUpdate, id };
 
-    const url = `http://localhost:5000/update-cabinet`;
+    const url = `https://school-server-umber.vercel.app/update-cabinet`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -98,7 +98,7 @@ const StudentCabinet = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/get-cabinet")
+    fetch("https://school-server-umber.vercel.app/get-cabinet")
       .then((res) => res.json())
       .then((data) => setCabinet(data));
   }, [handleCabinet, handledeleteCabinet, handleEditCabinet]);

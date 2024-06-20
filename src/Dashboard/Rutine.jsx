@@ -39,7 +39,7 @@ const Rutine = () => {
         const pdfRutine = data.url;
         if (data.status === "success") {
           const info = { classes, pdfRutine };
-          fetch("http://localhost:5000/add-rutine", {
+          fetch("https://school-server-umber.vercel.app/add-rutine", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -63,7 +63,7 @@ const Rutine = () => {
   };
 
   const handleDeleteRutin = (_id) => {
-    const url = `http://localhost:5000/delete-rutin?_id=${_id}`;
+    const url = `https://school-server-umber.vercel.app/delete-rutin?_id=${_id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -79,7 +79,7 @@ const Rutine = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/rutin")
+    fetch("https://school-server-umber.vercel.app/rutin")
       .then((res) => res.json())
       .then((data) => setRoutines(data));
   }, []);

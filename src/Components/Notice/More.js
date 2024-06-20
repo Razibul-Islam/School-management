@@ -6,7 +6,7 @@ const More = ({ path }) => {
   const [data, setData] = useState({});
   useEffect(() => {
     fetch(
-      `http://localhost:5000/single-notice?_id=${id}`
+      `https://school-server-umber.vercel.app/single-notice?_id=${id}`
     )
       .then((res) => res.json())
       .then((data) => setData(data));

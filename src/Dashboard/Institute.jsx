@@ -66,7 +66,7 @@ const Institute = () => {
       instituteEmail,
       id,
     };
-    fetch("http://localhost:5000/edit-institute-information", {
+    fetch("https://school-server-umber.vercel.app/edit-institute-information", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),
@@ -84,7 +84,7 @@ const Institute = () => {
       (res) => res.json()
     );
     const fetchInformation = fetch(
-      "http://localhost:5000/get-institute-info"
+      "https://school-server-umber.vercel.app/get-institute-info"
     ).then((res) => res.json());
 
     Promise.all([fetchDistricts, fetchInformation])

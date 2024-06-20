@@ -51,7 +51,7 @@ const AddTeacher = () => {
         };
 
         // Send teacher data to backend
-        const res = await fetch("http://localhost:5000/add-teacher", {
+        const res = await fetch("https://school-server-umber.vercel.app/add-teacher", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -78,7 +78,7 @@ const AddTeacher = () => {
   const handledeleteTeacher = async (_id) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/delete-teacher?_id=${_id}`,
+        `https://school-server-umber.vercel.app/delete-teacher?_id=${_id}`,
         {
           method: "DELETE",
         }
@@ -97,7 +97,7 @@ const AddTeacher = () => {
 
   const fetchTeachers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/get-teacher");
+      const res = await fetch("https://school-server-umber.vercel.app/get-teacher");
       const data = await res.json();
       setTeacher(data);
     } catch (error) {

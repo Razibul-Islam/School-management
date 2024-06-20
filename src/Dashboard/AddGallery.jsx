@@ -38,7 +38,7 @@ const AddGallery = () => {
         const galleryData = { caption, teacherImg };
 
         const galleryResponse = await fetch(
-          "http://localhost:5000/add-gallery",
+          "https://school-server-umber.vercel.app/add-gallery",
           {
             method: "POST",
             headers: {
@@ -69,7 +69,7 @@ const AddGallery = () => {
 
   const handleDeleteTeacher = async (_id) => {
     try {
-      const response = await fetch(`http://localhost:5000/gallery?_id=${_id}`, {
+      const response = await fetch(`https://school-server-umber.vercel.app/gallery?_id=${_id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -88,7 +88,7 @@ const AddGallery = () => {
 
   const fetchGallery = async () => {
     try {
-      const response = await fetch("http://localhost:5000/gallery");
+      const response = await fetch("https://school-server-umber.vercel.app/gallery");
       const data = await response.json();
       setTeachers(data);
     } catch (error) {

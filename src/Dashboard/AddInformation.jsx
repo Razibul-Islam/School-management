@@ -12,7 +12,7 @@ const AddInformation = () => {
     const totat_gpa_five = e.target.totat_gpa_five.value;
 
     const data = { founded, regularStudent, teacher, totat_gpa_five };
-    const url = `http://localhost:5000/school-information`;
+    const url = `https://school-server-umber.vercel.app/school-information`;
 
     fetch(url, {
       method: "PUT",
@@ -26,7 +26,7 @@ const AddInformation = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/information")
+    fetch("https://school-server-umber.vercel.app/information")
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);

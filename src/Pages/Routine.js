@@ -8,7 +8,7 @@ const Routine = () => {
   const [pdfUrl, setPdfUrl] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/rutin")
+    fetch("https://school-server-umber.vercel.app/rutin")
       .then((res) => res.json())
       .then((data) => setRoutines(data));
   }, []);

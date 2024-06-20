@@ -111,7 +111,7 @@ const Six = () => {
       };
 
       if (photo) {
-        const url = `http://localhost:5000/add-student`;
+        const url = `https://school-server-umber.vercel.app/add-student`;
         const response = await fetch(url, {
           method: "POST",
           headers: {
@@ -133,7 +133,7 @@ const Six = () => {
   };
 
   const handleDeleteStudent = async (_id) => {
-    const url = `http://localhost:5000/delete-student?_id=${_id}`;
+    const url = `https://school-server-umber.vercel.app/delete-student?_id=${_id}`;
     try {
       const response = await fetch(url, {
         method: "DELETE",
@@ -220,7 +220,7 @@ const Six = () => {
       id,
     };
 
-    const url = `http://localhost:5000/update-student`;
+    const url = `https://school-server-umber.vercel.app/update-student`;
     try {
       const response = await fetch(url, {
         method: "PUT",
@@ -242,7 +242,7 @@ const Six = () => {
   };
 
   useEffect(() => {
-    const url = "http://localhost:5000/get-allStudent";
+    const url = "https://school-server-umber.vercel.app/get-allStudent";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setStudent(data))

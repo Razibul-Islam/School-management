@@ -31,7 +31,7 @@ const SMC = () => {
   //             const memberImg = data.url;
   //             if (data) {
   //                 const data = { name, post, phone, memberImg, address, email };
-  //                 const url = `http://localhost:5000/add-smc`;
+  //                 const url = `https://school-server-umber.vercel.app/add-smc`;
   //                 fetch(url, {
   //                     method: "POST",
   //                     headers: {
@@ -53,7 +53,7 @@ const SMC = () => {
   // }
 
   const handledeleteSMC = (_id) => {
-    const url = `http://localhost:5000/delete-smc?_id=${_id}`;
+    const url = `https://school-server-umber.vercel.app/delete-smc?_id=${_id}`;
 
     fetch(url, {
       method: "DELETE",
@@ -88,7 +88,7 @@ const SMC = () => {
     const type = e.target.type.value;
     const data = { name, EIIN, year, startYear, endYear, councilDate, type };
 
-    fetch("http://localhost:5000/add-smc-counsil", {
+    fetch("https://school-server-umber.vercel.app/add-smc-counsil", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -104,7 +104,7 @@ const SMC = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/get-smc-counsil`;
+    const url = `https://school-server-umber.vercel.app/get-smc-counsil`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCouncil(data));
