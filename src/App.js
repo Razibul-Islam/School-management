@@ -22,7 +22,7 @@ import Latest from "./Pages/Latest";
 import AddGallery from "./Dashboard/AddGallery";
 import Rutine from "./Dashboard/Rutine";
 import AdmitCart from "./Dashboard/AdmitCart";
-// import RequireAuth from "./Dashboard/RequireAuth";
+import RequireAuth from "./Dashboard/RequireAuth";
 import Routine from "./Pages/Routine";
 import SingleTeacher from "./Pages/SingleTeacher";
 import Result from "./Pages/Result";
@@ -65,9 +65,9 @@ function App() {
           <Route
             path="/admin"
             element={
-              // <RequireAuth>
-              <Dashboard />
-              // </RequireAuth>
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
             }
           >
             <Route path="/admin/add-teacher" element={<AddTeacher />}></Route>
